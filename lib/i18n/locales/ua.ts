@@ -243,6 +243,64 @@ const ua: Dictionary = {
     applicationSent: "Заявку надіслано!",
     languageChanged: "Мову змінено",
     statusUpdated: "Статус заявки оновлено"
+  },
+  rabotajScore: {
+    title: "Rabotaj Score",
+    titleMark: "Rabotaj Score™",
+    levels: {
+      excellent: "Відмінна прозорість",
+      good: "Добра прозорість",
+      average: "Середня прозорість",
+      low: "Низька прозорість"
+    },
+    shortDisclaimer:
+      "Цей показник відображає, наскільки повна та прозора ця вакансія. Він не є оцінкою роботодавця і не гарантує працевлаштування.",
+    fullDisclaimer:
+      "Rabotaj Score оцінює повноту та прозорість вакансії на основі інформації, вказаної на платформі. Це не оцінка роботодавця, не рекомендація і не гарантія умов працевлаштування.",
+    tooltipDisclaimer:
+      "Цей показник стосується повноти та прозорості вакансії. Це не оцінка роботодавця і не гарантія працевлаштування.",
+    metCriteriaTitle: "Виконані критерії",
+    missingCriteriaTitle: "Відсутня інформація",
+    improveScore: "Підвищити показник",
+    whatToImprove: "Що покращити, щоб підвищити показник?",
+    howWeCalculate: "Як ми розраховуємо показник?",
+    howWeCalculateIntro:
+      "Rabotaj Score оцінює повноту та прозорість вакансії за шкалою 0–100. Кожен критерій ґрунтується на інформації, яку надав роботодавець, а не на думках чи оцінках користувачів.",
+    fillField: "Заповнити",
+    points: "балів",
+    liveScoreLabel: "Rabotaj Score в реальному часі",
+    companyAvgLabel: "Середній Rabotaj Score активних вакансій",
+    companyAvgExplain: "Показник стосується прозорості вакансій, а не загальної оцінки роботодавця.",
+    minScoreFilter: "Мінімальний Rabotaj Score",
+    sortHighestScore: "Найвищий Rabotaj Score",
+    criteriaMet: {
+      salaryRange: "Вказано вилку зарплати",
+      verifiedEmployer: "Компанію перевірено",
+      contractType: "Вказано тип договору",
+      workModel: "Визначено модель роботи",
+      location: "Вказано локацію",
+      workLanguage: "Вказано робочу мову",
+      responsibilities: "Описано обов'язки",
+      requirements: "Описано вимоги",
+      benefits: "Вказано переваги",
+      recruitmentProcess: "Описано процес відбору",
+      expectedResponseTime: "Вказано орієнтовний час відповіді",
+      startDate: "Вказано дату початку роботи"
+    },
+    criteriaMissing: {
+      salaryRange: "Додайте вилку зарплати",
+      verifiedEmployer: "Компанію ще не перевірено",
+      contractType: "Додайте тип договору",
+      workModel: "Визначте модель роботи",
+      location: "Додайте локацію",
+      workLanguage: "Вкажіть робочу мову",
+      responsibilities: "Опишіть обов'язки",
+      requirements: "Опишіть вимоги",
+      benefits: "Додайте переваги",
+      recruitmentProcess: "Опишіть процес відбору",
+      expectedResponseTime: "Вкажіть час відповіді",
+      startDate: "Вкажіть дату початку роботи"
+    }
   }
 };
 

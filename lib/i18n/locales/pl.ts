@@ -241,6 +241,64 @@ const pl = {
     applicationSent: "Aplikacja wysłana!",
     languageChanged: "Zmieniono język",
     statusUpdated: "Status aplikacji zaktualizowany"
+  },
+  rabotajScore: {
+    title: "Rabotaj Score",
+    titleMark: "Rabotaj Score™",
+    levels: {
+      excellent: "Doskonała przejrzystość",
+      good: "Dobra przejrzystość",
+      average: "Średnia przejrzystość",
+      low: "Niska przejrzystość"
+    },
+    shortDisclaimer:
+      "Ten wynik pokazuje, jak kompletne i przejrzyste jest ogłoszenie. Nie stanowi oceny pracodawcy ani gwarancji zatrudnienia.",
+    fullDisclaimer:
+      "Rabotaj Score ocenia kompletność i przejrzystość ogłoszenia na podstawie informacji podanych w serwisie. Nie jest oceną pracodawcy, rekomendacją ani gwarancją warunków zatrudnienia.",
+    tooltipDisclaimer:
+      "Ten wynik dotyczy kompletności i przejrzystości ogłoszenia. Nie jest oceną pracodawcy ani gwarancją zatrudnienia.",
+    metCriteriaTitle: "Spełnione kryteria",
+    missingCriteriaTitle: "Brakujące informacje",
+    improveScore: "Zwiększ wynik",
+    whatToImprove: "Co poprawić, aby zwiększyć wynik?",
+    howWeCalculate: "Jak obliczamy wynik?",
+    howWeCalculateIntro:
+      "Rabotaj Score to ocena kompletności i przejrzystości ogłoszenia w skali 0–100. Każde kryterium dotyczy informacji podanych przez pracodawcę — nie opinii ani ocen użytkowników.",
+    fillField: "Uzupełnij",
+    points: "pkt",
+    liveScoreLabel: "Rabotaj Score na żywo",
+    companyAvgLabel: "Średni Rabotaj Score aktywnych ofert",
+    companyAvgExplain: "Wynik dotyczy przejrzystości ogłoszeń, a nie ogólnej oceny pracodawcy.",
+    minScoreFilter: "Rabotaj Score minimum",
+    sortHighestScore: "Najwyższy Rabotaj Score",
+    criteriaMet: {
+      salaryRange: "Podano wynagrodzenie",
+      verifiedEmployer: "Firma została zweryfikowana",
+      contractType: "Podano rodzaj umowy",
+      workModel: "Określono model pracy",
+      location: "Podano lokalizację",
+      workLanguage: "Podano język pracy",
+      responsibilities: "Opisano zakres obowiązków",
+      requirements: "Opisano wymagania",
+      benefits: "Podano benefity",
+      recruitmentProcess: "Opisano proces rekrutacji",
+      expectedResponseTime: "Podano przewidywany czas odpowiedzi",
+      startDate: "Podano datę rozpoczęcia pracy"
+    },
+    criteriaMissing: {
+      salaryRange: "Dodaj widełki wynagrodzenia",
+      verifiedEmployer: "Firma nie została jeszcze zweryfikowana",
+      contractType: "Dodaj rodzaj umowy",
+      workModel: "Określ model pracy",
+      location: "Dodaj lokalizację",
+      workLanguage: "Podaj język pracy",
+      responsibilities: "Opisz zakres obowiązków",
+      requirements: "Opisz wymagania",
+      benefits: "Dodaj benefity",
+      recruitmentProcess: "Opisz proces rekrutacji",
+      expectedResponseTime: "Określ czas odpowiedzi",
+      startDate: "Podaj datę rozpoczęcia pracy"
+    }
   }
 };
 

@@ -12,8 +12,17 @@ import { useSavedJobs } from "@/lib/saved-jobs-context";
 import { useToast } from "@/lib/toast-context";
 import { useI18n } from "@/lib/i18n/context";
 import { cn } from "@/lib/utils";
+import { RabotajScore, type RabotajScoreVariant } from "@/components/rabotaj-score/RabotajScore";
 
-export function JobCard({ job, className }: { job: Job; className?: string }) {
+export function JobCard({
+  job,
+  className,
+  scoreVariant = "compact"
+}: {
+  job: Job;
+  className?: string;
+  scoreVariant?: Extract<RabotajScoreVariant, "compact" | "standard">;
+}) {
   const company = getCompanyBySlug(job.companySlug);
   const { isSaved, toggleSaved } = useSavedJobs();
   const { showToast } = useToast();
@@ -99,6 +108,10 @@ export function JobCard({ job, className }: { job: Job; className?: string }) {
             {t.badges.respondsFast}
           </Badge>
         )}
+      </div>
+
+      <div className="relative z-10">
+        <RabotajScore job={job} variant={scoreVariant} />
       </div>
 
       <div className="relative z-10 mt-auto flex items-center justify-between gap-3 border-t border-border pt-4">

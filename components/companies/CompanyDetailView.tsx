@@ -1,17 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { ShieldCheck, Clock3, Heart, Eye, MapPin, Users, CalendarRange } from "lucide-react";
+import { ShieldCheck, Clock3, Heart, Eye, MapPin, Users, CalendarRange, Gauge } from "lucide-react";
 import type { Company } from "@/lib/data/companies";
 import { jobs } from "@/lib/data/jobs";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { Badge } from "@/components/ui/Badge";
 import { JobCard } from "@/components/jobs/JobCard";
 import { useI18n } from "@/lib/i18n/context";
+import { calculateRabotajScore, getRabotajScoreLevel } from "@/lib/rabotaj-score";
+import { ScoreRing } from "@/components/rabotaj-score/ScoreRing";
+import { levelTheme } from "@/components/rabotaj-score/levelTheme";
 
 export function CompanyDetailView({ company }: { company: Company }) {
   const { t } = useI18n();
   const companyJobs = jobs.filter((job) => job.companySlug === company.slug);
+  const averageScore =
+    companyJobs.length > 0
+      ? Math.round(
+          companyJobs.reduce((sum, job) => sum + calculateRabotajScore(job).score, 0) / companyJobs.length
+        )
+      : null;
+  const averageLevel = averageScore !== null ? getRabotajScoreLevel(averageScore) : null;
+  const averageTheme = averageLevel ? levelTheme[averageLevel] : null;
 
   return (
     <div className="bg-surface pb-16">
@@ -68,17 +79,37 @@ export function CompanyDetailView({ company }: { company: Company }) {
             </div>
           </div>
 
-          <aside className="flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 shadow-soft">
-            <InfoRow icon={Users} label="Wielkość firmy" value={company.size} />
-            <InfoRow icon={CalendarRange} label="Rok założenia" value={String(company.founded)} />
-            <InfoRow icon={Eye} label={t.companies.openJobs} value={String(company.openJobs)} />
-            <InfoRow icon={Clock3} label={t.companies.responseTime} value={company.responseTime} />
-            <Link
-              href="/jobs"
-              className="mt-2 inline-flex items-center justify-center rounded-xl bg-brand px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-blue-700"
-            >
-              {t.common.seeAll} {t.nav.jobs.toLowerCase()}
-            </Link>
+          <aside className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 shadow-soft">
+              <InfoRow icon={Users} label="Wielkość firmy" value={company.size} />
+              <InfoRow icon={CalendarRange} label="Rok założenia" value={String(company.founded)} />
+              <InfoRow icon={Eye} label={t.companies.openJobs} value={String(company.openJobs)} />
+              <InfoRow icon={Clock3} label={t.companies.responseTime} value={company.responseTime} />
+              <Link
+                href="/jobs"
+                className="mt-2 inline-flex items-center justify-center rounded-xl bg-brand px-5 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-blue-700"
+              >
+                {t.common.seeAll} {t.nav.jobs.toLowerCase()}
+              </Link>
+            </div>
+
+            {averageScore !== null && averageTheme && (
+              <div className="rounded-2xl border border-border bg-white p-6 shadow-soft">
+                <div className="flex items-center gap-3">
+                  <ScoreRing score={averageScore} size={44} colorHex={averageTheme.ring} />
+                  <div>
+                    <p className="text-sm font-bold text-ink">
+                      {t.rabotajScore.companyAvgLabel}: {averageScore}/100
+                    </p>
+                    <p className={`mt-0.5 inline-flex items-center gap-1.5 text-xs font-semibold ${averageTheme.text}`}>
+                      <Gauge size={12} aria-hidden="true" />
+                      {t.rabotajScore.levels[averageLevel!]}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-5 text-muted">{t.rabotajScore.companyAvgExplain}</p>
+              </div>
+            )}
           </aside>
         </div>
       </div>

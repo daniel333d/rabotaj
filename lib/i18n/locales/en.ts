@@ -243,6 +243,64 @@ const en: Dictionary = {
     applicationSent: "Application sent!",
     languageChanged: "Language changed",
     statusUpdated: "Application status updated"
+  },
+  rabotajScore: {
+    title: "Rabotaj Score",
+    titleMark: "Rabotaj Score™",
+    levels: {
+      excellent: "Excellent transparency",
+      good: "Good transparency",
+      average: "Average transparency",
+      low: "Low transparency"
+    },
+    shortDisclaimer:
+      "This score shows how complete and transparent this job posting is. It does not rate the employer or guarantee employment.",
+    fullDisclaimer:
+      "Rabotaj Score rates the completeness and transparency of a job posting based on the information provided on the platform. It is not an employer rating, a recommendation, or a guarantee of employment terms.",
+    tooltipDisclaimer:
+      "This score relates to the completeness and transparency of the posting. It is not an employer rating or a guarantee of employment.",
+    metCriteriaTitle: "Criteria met",
+    missingCriteriaTitle: "Missing information",
+    improveScore: "Improve score",
+    whatToImprove: "What to improve to increase the score?",
+    howWeCalculate: "How do we calculate this score?",
+    howWeCalculateIntro:
+      "Rabotaj Score rates the completeness and transparency of a job posting on a 0–100 scale. Every criterion is based on information provided by the employer — not user opinions or ratings.",
+    fillField: "Fill in",
+    points: "pts",
+    liveScoreLabel: "Live Rabotaj Score",
+    companyAvgLabel: "Average Rabotaj Score of active listings",
+    companyAvgExplain: "This score relates to job posting transparency, not an overall employer rating.",
+    minScoreFilter: "Minimum Rabotaj Score",
+    sortHighestScore: "Highest Rabotaj Score",
+    criteriaMet: {
+      salaryRange: "Salary range provided",
+      verifiedEmployer: "Company has been verified",
+      contractType: "Contract type provided",
+      workModel: "Work model specified",
+      location: "Location provided",
+      workLanguage: "Work language provided",
+      responsibilities: "Responsibilities described",
+      requirements: "Requirements described",
+      benefits: "Benefits provided",
+      recruitmentProcess: "Recruitment process described",
+      expectedResponseTime: "Expected response time provided",
+      startDate: "Start date provided"
+    },
+    criteriaMissing: {
+      salaryRange: "Add a salary range",
+      verifiedEmployer: "Company has not been verified yet",
+      contractType: "Add a contract type",
+      workModel: "Specify a work model",
+      location: "Add a location",
+      workLanguage: "Provide the work language",
+      responsibilities: "Describe the responsibilities",
+      requirements: "Describe the requirements",
+      benefits: "Add benefits",
+      recruitmentProcess: "Describe the recruitment process",
+      expectedResponseTime: "Specify the response time",
+      startDate: "Provide the start date"
+    }
   }
 };
 

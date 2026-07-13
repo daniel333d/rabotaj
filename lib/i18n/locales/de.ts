@@ -1,0 +1,307 @@
+import type { Dictionary } from "./pl";
+
+const de: Dictionary = {
+  meta: {
+    locale: "de",
+    label: "Deutsch"
+  },
+  common: {
+    save: "Speichern",
+    saved: "Gespeichert",
+    apply: "Bewerben",
+    applyFast: "In 15 Sekunden bewerben",
+    seeMore: "Mehr anzeigen",
+    seeAll: "Alle anzeigen",
+    seeCompany: "Unternehmen ansehen",
+    seeExample: "Beispiel ansehen",
+    loading: "Wird geladen…",
+    close: "Schließen",
+    filters: "Filter",
+    clearFilters: "Filter zurücksetzen",
+    showResults: "Ergebnisse anzeigen",
+    sortBy: "Sortieren",
+    perMonth: "/ Monat",
+    gross: "brutto"
+  },
+  nav: {
+    jobs: "Stellenangebote",
+    companies: "Unternehmen",
+    salary: "Gehälter",
+    careerCenter: "Karrierecenter",
+    employers: "Für Arbeitgeber",
+    login: "Anmelden",
+    register: "Registrieren",
+    postJob: "Stelle inserieren"
+  },
+  hero: {
+    headline: "Arbeiten ohne Grenzen.",
+    subtitle:
+      "Finde eine geprüfte Stelle in Polen und ganz Europa. Erstelle ein Karriereprofil, bewirb dich schneller und verfolge jeden Schritt der Bewerbung.",
+    positionLabel: "Position, Beruf oder Fähigkeit",
+    positionPlaceholder: "z. B. Frontend Developer, Schweißer, Fahrer",
+    locationLabel: "Stadt, Land oder Remote",
+    locationPlaceholder: "z. B. Warschau, Deutschland, remote",
+    cta: "Job finden",
+    popularLabel: "Beliebte Suchanfragen",
+    matchLabel: "Übereinstimmung",
+    verifiedEmployer: "Verified Employer",
+    interviewInvite: "Einladung zum Gespräch",
+    passportPreview: "Career Passport"
+  },
+  popularSearches: {
+    remote: "Remote-Arbeit",
+    noExperience: "Ohne Erfahrung",
+    accommodation: "Mit Unterkunft",
+    ukraine: "Für Menschen aus der Ukraine",
+    it: "IT",
+    production: "Produktion",
+    transport: "Transport",
+    construction: "Bauwesen"
+  },
+  badges: {
+    verifiedEmployer: "Verified Employer",
+    salaryDisclosed: "Gehalt angegeben",
+    remote: "Remote-Arbeit",
+    noCv: "Bewerbung ohne Lebenslauf",
+    respondsFast: "Antwortet in der Regel innerhalb von 2 Tagen"
+  },
+  latestJobs: {
+    kicker: "Neueste Stellenangebote",
+    title: "Neueste und empfohlene Stellenangebote",
+    intro: "Frisch veröffentlichte Stellen von geprüften Arbeitgebern in Polen und Europa.",
+    cta: "Alle Stellenangebote ansehen"
+  },
+  careerPassport: {
+    kicker: "Career Passport",
+    title: "Ein Karriereprofil. Jede Bewerbung.",
+    text: "Erstelle ein digitales Karriereprofil, das du für jede Bewerbung nutzen kannst. Fülle nicht jedes Mal dieselben Formulare aus.",
+    createCta: "Career Passport erstellen",
+    exampleCta: "Beispiel ansehen",
+    relocation: "Bereit zur Umsiedlung",
+    languages: "Sprachen",
+    skills: "Fähigkeiten",
+    expectedSalary: "Gehaltsvorstellung",
+    completeness: "Profil-Vollständigkeit",
+    emailVerified: "E-Mail bestätigt",
+    phoneVerified: "Telefon bestätigt"
+  },
+  howItWorks: {
+    kicker: "So funktioniert Rabotaj",
+    title: "Drei Schritte zum neuen Job",
+    steps: [
+      {
+        title: "Erstelle dein Career Passport",
+        text: "Fülle dein Profil einmal aus — Beruf, Fähigkeiten, Sprachen, Gehaltsvorstellungen."
+      },
+      {
+        title: "In Sekunden bewerben",
+        text: "Wähle eine Stelle und sende deine Bewerbung mit einem Klick, ohne erneut Formulare auszufüllen."
+      },
+      {
+        title: "Verfolge den Bewerbungsstatus",
+        text: "Sieh live, in welcher Phase deine Bewerbung ist — von der Einreichung bis zum Jobangebot."
+      }
+    ]
+  },
+  verifiedEmployers: {
+    kicker: "Verified Employers",
+    title: "Wir prüfen Arbeitgeber, bevor sie auf Rabotaj erscheinen",
+    text: "Jedes Unternehmen mit dem Verified-Employer-Abzeichen wurde hinsichtlich Registrierungsdaten und Einstellungspraxis geprüft, damit du mit mehr Vertrauen bewerben kannst.",
+    badge1: "Unternehmen verifiziert",
+    badge2: "Gehalt transparent",
+    badge3: "Schnelle Antwort",
+    badge4: "Ausländerfreundlich"
+  },
+  applicationStatus: {
+    kicker: "Bewerbungsstatus",
+    title: "Behalte immer den Überblick über deine Bewerbung.",
+    steps: [
+      "Bewerbung gesendet",
+      "Profil angesehen",
+      "Kandidat vorqualifiziert",
+      "Einladung zum Gespräch",
+      "Jobangebot"
+    ]
+  },
+  companies: {
+    kicker: "Empfohlene Unternehmen",
+    title: "Geprüfte Arbeitgeber in Polen und Europa",
+    industry: "Branche",
+    country: "Land",
+    openJobs: "offene Stellen",
+    responseTime: "Ø Antwortzeit"
+  },
+  remoteAbroad: {
+    kicker: "Remote & im Ausland",
+    title: "Arbeite von überall — oder gehe für einen Job ins Ausland",
+    remoteTitle: "Remote-Arbeit",
+    remoteText: "Hunderte Stellen ohne Umzug — arbeite von zu Hause für Unternehmen in Polen und Europa.",
+    abroadTitle: "Arbeiten im Ausland",
+    abroadText: "Legale Stellenangebote in Deutschland, den Niederlanden und anderen EU-Ländern, viele mit Unterkunft.",
+    cta: "Stellen durchsuchen"
+  },
+  salary: {
+    kicker: "Gehälter",
+    title: "Reale Gehaltsspannen prüfen",
+    text: "Vergleiche Gehälter für ähnliche Positionen in deiner Stadt und Branche, bevor du dich bewirbst.",
+    cta: "Gehälter prüfen"
+  },
+  employersSection: {
+    kicker: "Für Arbeitgeber",
+    title: "Finde Menschen, die wirklich zu deinem Unternehmen passen.",
+    benefit1: "Schnelle Stellenausschreibung",
+    benefit2: "Einfaches Kandidaten-Dashboard",
+    benefit3: "Bewerbungsstatus",
+    benefit4: "Verified-Employer-Profil",
+    benefit5: "Grundlegende Statistiken",
+    postJob: "Stelle inserieren",
+    learnMore: "Rabotaj für Unternehmen entdecken"
+  },
+  careerCenter: {
+    kicker: "Karrierecenter",
+    title: "Ratgeber, Lebenslauf-Vorlagen und Bewerbungsunterstützung",
+    text: "Praktische Ressourcen für Jobsuchende in Polen und Europa — vom Lebenslauf bis zur legalen Beschäftigung.",
+    cta: "Zum Karrierecenter"
+  },
+  newsletter: {
+    title: "Neue Jobs direkt in dein Postfach",
+    text: "Wähle Branche und Standort — wir benachrichtigen dich über neue, passende Stellen.",
+    placeholder: "Deine E-Mail-Adresse",
+    cta: "Abonnieren"
+  },
+  footer: {
+    tagline: "Arbeiten ohne Grenzen.",
+    forCandidates: "Für Bewerber",
+    forEmployers: "Für Arbeitgeber",
+    company: "Unternehmen",
+    legal: "Rechtliches",
+    about: "Über uns",
+    contact: "Kontakt",
+    terms: "Nutzungsbedingungen",
+    privacy: "Datenschutz",
+    rights: "Alle Rechte vorbehalten."
+  },
+  jobsPage: {
+    title: "Stellenangebote",
+    resultsCount: "Ergebnisse",
+    filtersTitle: "Filter",
+    sortNewest: "Neueste",
+    sortSalaryHigh: "Gehalt: absteigend",
+    sortMatch: "Beste Übereinstimmung",
+    filterCountry: "Land",
+    filterCity: "Stadt",
+    filterRemote: "Remote-Arbeit",
+    filterSalary: "Gehalt",
+    filterContract: "Vertragsart",
+    filterExperience: "Erfahrung",
+    filterLanguage: "Arbeitssprache",
+    filterIndustry: "Branche",
+    filterVerified: "Nur Verified Employer",
+    noResults: "Keine Stellen entsprechen den gewählten Kriterien.",
+    page: "Seite"
+  },
+  jobDetail: {
+    aboutRole: "Über die Stelle",
+    responsibilities: "Aufgaben",
+    requirements: "Anforderungen",
+    benefits: "Benefits",
+    process: "Bewerbungsprozess",
+    aboutCompany: "Über das Unternehmen",
+    similarJobs: "Ähnliche Stellen",
+    contractType: "Beschäftigungsart",
+    workModel: "Arbeitsmodell",
+    location: "Standort",
+    salaryLabel: "Gehalt",
+    published: "Veröffentlicht"
+  },
+  dashboard: {
+    welcome: "Willkommen zurück",
+    newMatches: "Neue passende Stellen",
+    activeApplications: "Aktive Bewerbungen",
+    profileViews: "Profilaufrufe",
+    interviews: "Einladungen zum Gespräch",
+    passportCompleteness: "Career-Passport-Vollständigkeit",
+    myApplications: "Deine Bewerbungen",
+    recommended: "Für dich empfohlen"
+  },
+  auth: {
+    loginTitle: "Bei Rabotaj anmelden",
+    registerTitle: "Rabotaj-Konto erstellen",
+    email: "E-Mail-Adresse",
+    password: "Passwort",
+    fullName: "Vor- und Nachname",
+    loginCta: "Anmelden",
+    registerCta: "Konto erstellen",
+    noAccount: "Noch kein Konto?",
+    haveAccount: "Bereits ein Konto?",
+    registerLink: "Registrieren",
+    loginLink: "Anmelden"
+  },
+  toast: {
+    jobSaved: "Stelle gespeichert",
+    jobUnsaved: "Aus Gespeicherten entfernt",
+    applicationSent: "Bewerbung gesendet!",
+    languageChanged: "Sprache geändert",
+    statusUpdated: "Bewerbungsstatus aktualisiert"
+  },
+  rabotajScore: {
+    title: "Rabotaj Score",
+    titleMark: "Rabotaj Score™",
+    levels: {
+      excellent: "Ausgezeichnete Transparenz",
+      good: "Gute Transparenz",
+      average: "Mittlere Transparenz",
+      low: "Geringe Transparenz"
+    },
+    shortDisclaimer:
+      "Dieser Wert zeigt, wie vollständig und transparent diese Stellenanzeige ist. Er bewertet nicht den Arbeitgeber und garantiert keine Anstellung.",
+    fullDisclaimer:
+      "Der Rabotaj Score bewertet die Vollständigkeit und Transparenz einer Stellenanzeige anhand der auf der Plattform angegebenen Informationen. Er ist keine Arbeitgeberbewertung, keine Empfehlung und keine Garantie für Beschäftigungsbedingungen.",
+    tooltipDisclaimer:
+      "Dieser Wert bezieht sich auf die Vollständigkeit und Transparenz der Anzeige. Er ist keine Arbeitgeberbewertung und keine Beschäftigungsgarantie.",
+    metCriteriaTitle: "Erfüllte Kriterien",
+    missingCriteriaTitle: "Fehlende Informationen",
+    improveScore: "Wert verbessern",
+    whatToImprove: "Was verbessern, um den Wert zu erhöhen?",
+    howWeCalculate: "Wie berechnen wir den Wert?",
+    howWeCalculateIntro:
+      "Der Rabotaj Score bewertet die Vollständigkeit und Transparenz einer Stellenanzeige auf einer Skala von 0–100. Jedes Kriterium basiert auf Angaben des Arbeitgebers — nicht auf Nutzermeinungen oder -bewertungen.",
+    fillField: "Ausfüllen",
+    points: "Pkt.",
+    liveScoreLabel: "Rabotaj Score live",
+    companyAvgLabel: "Durchschnittlicher Rabotaj Score aktiver Anzeigen",
+    companyAvgExplain: "Der Wert bezieht sich auf die Transparenz der Anzeigen, nicht auf eine allgemeine Arbeitgeberbewertung.",
+    minScoreFilter: "Rabotaj Score mindestens",
+    sortHighestScore: "Höchster Rabotaj Score",
+    criteriaMet: {
+      salaryRange: "Gehaltsspanne angegeben",
+      verifiedEmployer: "Unternehmen wurde verifiziert",
+      contractType: "Vertragsart angegeben",
+      workModel: "Arbeitsmodell festgelegt",
+      location: "Standort angegeben",
+      workLanguage: "Arbeitssprache angegeben",
+      responsibilities: "Aufgaben beschrieben",
+      requirements: "Anforderungen beschrieben",
+      benefits: "Benefits angegeben",
+      recruitmentProcess: "Bewerbungsprozess beschrieben",
+      expectedResponseTime: "Voraussichtliche Antwortzeit angegeben",
+      startDate: "Startdatum angegeben"
+    },
+    criteriaMissing: {
+      salaryRange: "Gehaltsspanne hinzufügen",
+      verifiedEmployer: "Unternehmen wurde noch nicht verifiziert",
+      contractType: "Vertragsart hinzufügen",
+      workModel: "Arbeitsmodell festlegen",
+      location: "Standort hinzufügen",
+      workLanguage: "Arbeitssprache angeben",
+      responsibilities: "Aufgaben beschreiben",
+      requirements: "Anforderungen beschreiben",
+      benefits: "Benefits hinzufügen",
+      recruitmentProcess: "Bewerbungsprozess beschreiben",
+      expectedResponseTime: "Antwortzeit festlegen",
+      startDate: "Startdatum angeben"
+    }
+  }
+};
+
+export default de;

@@ -243,6 +243,64 @@ const ru: Dictionary = {
     applicationSent: "Отклик отправлен!",
     languageChanged: "Язык изменён",
     statusUpdated: "Статус отклика обновлён"
+  },
+  rabotajScore: {
+    title: "Rabotaj Score",
+    titleMark: "Rabotaj Score™",
+    levels: {
+      excellent: "Отличная прозрачность",
+      good: "Хорошая прозрачность",
+      average: "Средняя прозрачность",
+      low: "Низкая прозрачность"
+    },
+    shortDisclaimer:
+      "Этот показатель отражает, насколько полна и прозрачна данная вакансия. Он не является оценкой работодателя и не гарантирует трудоустройство.",
+    fullDisclaimer:
+      "Rabotaj Score оценивает полноту и прозрачность вакансии на основе информации, указанной на платформе. Это не оценка работодателя, не рекомендация и не гарантия условий трудоустройства.",
+    tooltipDisclaimer:
+      "Этот показатель касается полноты и прозрачности вакансии. Это не оценка работодателя и не гарантия трудоустройства.",
+    metCriteriaTitle: "Выполненные критерии",
+    missingCriteriaTitle: "Отсутствующая информация",
+    improveScore: "Повысить показатель",
+    whatToImprove: "Что улучшить, чтобы повысить показатель?",
+    howWeCalculate: "Как мы рассчитываем показатель?",
+    howWeCalculateIntro:
+      "Rabotaj Score оценивает полноту и прозрачность вакансии по шкале 0–100. Каждый критерий основан на информации, предоставленной работодателем, а не на мнениях или оценках пользователей.",
+    fillField: "Заполнить",
+    points: "баллов",
+    liveScoreLabel: "Rabotaj Score в реальном времени",
+    companyAvgLabel: "Средний Rabotaj Score активных вакансий",
+    companyAvgExplain: "Показатель касается прозрачности вакансий, а не общей оценки работодателя.",
+    minScoreFilter: "Минимальный Rabotaj Score",
+    sortHighestScore: "Высокий Rabotaj Score",
+    criteriaMet: {
+      salaryRange: "Указана вилка зарплаты",
+      verifiedEmployer: "Компания проверена",
+      contractType: "Указан тип договора",
+      workModel: "Определена модель работы",
+      location: "Указана локация",
+      workLanguage: "Указан рабочий язык",
+      responsibilities: "Описаны обязанности",
+      requirements: "Описаны требования",
+      benefits: "Указаны преимущества",
+      recruitmentProcess: "Описан процесс отбора",
+      expectedResponseTime: "Указано ориентировочное время ответа",
+      startDate: "Указана дата начала работы"
+    },
+    criteriaMissing: {
+      salaryRange: "Добавьте вилку зарплаты",
+      verifiedEmployer: "Компания ещё не проверена",
+      contractType: "Добавьте тип договора",
+      workModel: "Определите модель работы",
+      location: "Добавьте локацию",
+      workLanguage: "Укажите рабочий язык",
+      responsibilities: "Опишите обязанности",
+      requirements: "Опишите требования",
+      benefits: "Добавьте преимущества",
+      recruitmentProcess: "Опишите процесс отбора",
+      expectedResponseTime: "Укажите время ответа",
+      startDate: "Укажите дату начала работы"
+    }
   }
 };
 

@@ -5,17 +5,21 @@ import pl from "./locales/pl";
 import en from "./locales/en";
 import ua from "./locales/ua";
 import ru from "./locales/ru";
+import de from "./locales/de";
+import es from "./locales/es";
 import type { Dictionary } from "./locales/pl";
 
-export type LocaleCode = "pl" | "ua" | "ru" | "en";
+export type LocaleCode = "pl" | "ua" | "ru" | "en" | "de" | "es";
 
-export const dictionaries: Record<LocaleCode, Dictionary> = { pl, ua, ru, en };
+export const dictionaries: Record<LocaleCode, Dictionary> = { pl, ua, ru, en, de, es };
 
 export const localeOptions: { code: LocaleCode; label: string }[] = [
   { code: "pl", label: "PL" },
   { code: "ua", label: "UA" },
   { code: "ru", label: "RU" },
-  { code: "en", label: "EN" }
+  { code: "en", label: "EN" },
+  { code: "de", label: "DE" },
+  { code: "es", label: "ES" }
 ];
 
 const STORAGE_KEY = "rabotaj-locale";

@@ -30,6 +30,10 @@ export type Job = {
   requirements: string[];
   benefits: string[];
   process: string[];
+  /** Free-text expected response time from the employer, e.g. "Zwykle w ciągu 2 dni roboczych". Optional — feeds Rabotaj Score. */
+  expectedResponseTime?: string;
+  /** Free-text start date or availability, e.g. "Od zaraz". Optional — feeds Rabotaj Score. */
+  startDate?: string;
 };
 
 export const jobs: Job[] = [
@@ -81,7 +85,9 @@ export const jobs: Job[] = [
       "Zadanie techniczne do wykonania w domu",
       "Rozmowa techniczna z zespołem",
       "Oferta"
-    ]
+    ],
+    expectedResponseTime: "Zwykle w ciągu 2 dni roboczych",
+    startDate: "Od zaraz"
   },
   {
     slug: "operator-cnc-baltic-manufacturing",
@@ -130,7 +136,8 @@ export const jobs: Job[] = [
       "Rozmowa z działem HR",
       "Test praktyczny na hali produkcyjnej",
       "Decyzja w ciągu 3 dni roboczych"
-    ]
+    ],
+    expectedResponseTime: "Zwykle w ciągu 3 dni roboczych"
   },
   {
     slug: "kierowca-c-e-nordcargo",
@@ -175,12 +182,7 @@ export const jobs: Job[] = [
       "Stałe trasy — powroty co 2 tygodnie",
       "Prywatna opieka medyczna"
     ],
-    process: [
-      "Rozmowa telefoniczna",
-      "Weryfikacja dokumentów i uprawnień",
-      "Jazda próbna",
-      "Podpisanie umowy"
-    ]
+    process: []
   },
   {
     slug: "specjalista-ds-sprzedazy-primehome",
@@ -213,18 +215,8 @@ export const jobs: Job[] = [
       "Realizacja indywidualnych i zespołowych celów sprzedażowych",
       "Dbałość o ekspozycję produktów"
     ],
-    requirements: [
-      "Doświadczenie w sprzedaży mile widziane, nie jest wymagane",
-      "Komunikatywność i nastawienie na klienta",
-      "Gotowość do pracy w weekendy (system zmianowy)",
-      "Prawo jazdy kat. B mile widziane"
-    ],
-    benefits: [
-      "Podstawa + prowizja bez górnego limitu",
-      "Pełne szkolenie produktowe",
-      "Rabaty pracownicze",
-      "Jasna ścieżka awansu"
-    ],
+    requirements: [],
+    benefits: [],
     process: [
       "Rozmowa z kierownikiem salonu",
       "Dzień próbny",
@@ -248,7 +240,7 @@ export const jobs: Job[] = [
     skills: ["Obsługa wózka widłowego", "Kompletacja zamówień"],
     publishedAt: "2026-07-11",
     matchPercent: 81,
-    verifiedEmployer: true,
+    verifiedEmployer: false,
     salaryDisclosed: true,
     remote: false,
     noCv: true,
@@ -262,23 +254,14 @@ export const jobs: Job[] = [
       "Obsługa skanera magazynowego",
       "Dbałość o porządek na magazynie"
     ],
-    requirements: [
-      "Brak wymaganego doświadczenia — pełne przeszkolenie",
-      "Gotowość do pracy zmianowej",
-      "Podstawowa znajomość języka polskiego lub ukraińskiego",
-      "Uprawnienia na wózek widłowy mile widziane"
-    ],
+    requirements: [],
     benefits: [
       "Bezpłatne zakwaterowanie w pobliżu zakładu",
       "Transport z miejsca zakwaterowania",
       "Możliwość przejścia na umowę stałą",
       "Premie za frekwencję"
     ],
-    process: [
-      "Rozmowa telefoniczna",
-      "Podpisanie umowy",
-      "Przyjazd i wdrożenie na miejscu"
-    ]
+    process: []
   },
   {
     slug: "ux-ui-designer-brightdesk",
@@ -367,17 +350,8 @@ export const jobs: Job[] = [
       "Podstawowa znajomość języka niemieckiego lub angielskiego mile widziana",
       "Aktualny paszport lub dowód osobisty"
     ],
-    benefits: [
-      "Zakwaterowanie zapewnione przez pracodawcę",
-      "Transport z Polski do miejsca pracy",
-      "Wsparcie formalne (rejestracja, ubezpieczenie)",
-      "Możliwość przedłużenia kontraktu"
-    ],
-    process: [
-      "Rozmowa telefoniczna z konsultantem WorkLine",
-      "Kompletacja dokumentów",
-      "Wyjazd i wdrożenie na miejscu"
-    ]
+    benefits: [],
+    process: []
   },
   {
     slug: "spawacz-mig-mag-baltic-manufacturing",
@@ -397,7 +371,7 @@ export const jobs: Job[] = [
     publishedAt: "2026-07-04",
     matchPercent: 83,
     verifiedEmployer: true,
-    salaryDisclosed: true,
+    salaryDisclosed: false,
     remote: false,
     noCv: true,
     respondsFast: false,
@@ -416,13 +390,8 @@ export const jobs: Job[] = [
       "Umiejętność czytania dokumentacji technicznej",
       "Dokładność i dbałość o jakość"
     ],
-    benefits: [
-      "Stabilne zatrudnienie na umowę o pracę",
-      "Premia jakościowa",
-      "Odzież robocza i narzędzia",
-      "Pakiet socjalny"
-    ],
-    process: ["Rozmowa z brygadzistą", "Test praktyczny", "Oferta zatrudnienia"]
+    benefits: [],
+    process: []
   },
   {
     slug: "backend-developer-node-technova",
@@ -462,7 +431,8 @@ export const jobs: Job[] = [
       "Znajomość zasad projektowania API"
     ],
     benefits: ["Elastyczne godziny pracy", "Budżet szkoleniowy", "Prywatna opieka medyczna", "Karta sportowa"],
-    process: ["Rozmowa z rekruterem", "Zadanie techniczne", "Rozmowa z zespołem", "Oferta"]
+    process: ["Rozmowa z rekruterem", "Zadanie techniczne", "Rozmowa z zespołem", "Oferta"],
+    startDate: "Od zaraz"
   },
   {
     slug: "kierowca-kat-b-dostawca-primehome",
@@ -495,14 +465,9 @@ export const jobs: Job[] = [
       "Kontakt z klientem podczas dostawy",
       "Dbałość o powierzony pojazd"
     ],
-    requirements: [
-      "Prawo jazdy kat. B (min. 2 lata)",
-      "Dobra kondycja fizyczna",
-      "Komunikatywność",
-      "Znajomość Poznania i okolic mile widziana"
-    ],
+    requirements: [],
     benefits: ["Elastyczny grafik", "Paliwo i eksploatacja pokryte przez firmę", "Premie za terminowość"],
-    process: ["Rozmowa telefoniczna", "Jazda próbna", "Start pracy"]
+    process: []
   },
   {
     slug: "kelner-kelnerka-berlin-workline",
@@ -521,8 +486,8 @@ export const jobs: Job[] = [
     skills: ["Obsługa gościa", "Praca zespołowa"],
     publishedAt: "2026-07-02",
     matchPercent: 71,
-    verifiedEmployer: true,
-    salaryDisclosed: true,
+    verifiedEmployer: false,
+    salaryDisclosed: false,
     remote: false,
     noCv: true,
     respondsFast: true,
@@ -542,7 +507,7 @@ export const jobs: Job[] = [
       "Gotowość do pracy zmianowej, także w weekendy"
     ],
     benefits: ["Zakwaterowanie zapewnione", "Napiwki", "Wsparcie formalne", "Posiłki pracownicze"],
-    process: ["Rozmowa telefoniczna", "Kompletacja dokumentów", "Wyjazd do pracy"]
+    process: []
   },
   {
     slug: "specjalista-hr-technova",
@@ -561,8 +526,8 @@ export const jobs: Job[] = [
     skills: ["Rekrutacja IT", "LinkedIn Recruiter", "Employer branding"],
     publishedAt: "2026-07-01",
     matchPercent: 78,
-    verifiedEmployer: true,
-    salaryDisclosed: true,
+    verifiedEmployer: false,
+    salaryDisclosed: false,
     remote: false,
     noCv: false,
     respondsFast: true,
@@ -575,12 +540,7 @@ export const jobs: Job[] = [
       "Współpraca z hiring managerami",
       "Dbałość o doświadczenie kandydata"
     ],
-    requirements: [
-      "Min. 2 lata doświadczenia w rekrutacji IT",
-      "Znajomość narzędzi sourcingowych",
-      "Bardzo dobra organizacja pracy",
-      "Znajomość języka angielskiego B2+"
-    ],
+    requirements: [],
     benefits: ["Elastyczne godziny pracy", "Prywatna opieka medyczna", "Budżet szkoleniowy", "Karta sportowa"],
     process: ["Rozmowa z People Team", "Case study rekrutacyjny", "Rozmowa z zespołem", "Oferta"]
   },
@@ -602,7 +562,7 @@ export const jobs: Job[] = [
     publishedAt: "2026-06-30",
     matchPercent: 69,
     verifiedEmployer: true,
-    salaryDisclosed: true,
+    salaryDisclosed: false,
     remote: false,
     noCv: true,
     respondsFast: false,
@@ -621,7 +581,7 @@ export const jobs: Job[] = [
       "Dyspozycyjność i dobra kondycja fizyczna",
       "Aktualne badania BHP"
     ],
-    benefits: ["Umowa o pracę od pierwszego dnia", "Szkolenia BHP i uprawnienia opłacane przez firmę", "Premie za projekty"],
+    benefits: [],
     process: ["Rozmowa z kierownikiem budowy", "Weryfikacja uprawnień", "Oferta zatrudnienia"]
   },
   {
@@ -641,8 +601,8 @@ export const jobs: Job[] = [
     skills: ["Figma", "Product design", "Design systems", "Prototypowanie"],
     publishedAt: "2026-06-29",
     matchPercent: 94,
-    verifiedEmployer: true,
-    salaryDisclosed: true,
+    verifiedEmployer: false,
+    salaryDisclosed: false,
     remote: true,
     noCv: false,
     respondsFast: true,
@@ -661,8 +621,8 @@ export const jobs: Job[] = [
       "Bardzo dobra znajomość języka angielskiego",
       "Doświadczenie w pracy zdalnej i asynchronicznej"
     ],
-    benefits: ["Praca w 100% zdalna", "Elastyczne godziny", "Budżet na sprzęt", "Konferencje branżowe"],
-    process: ["Rozmowa wstępna", "Przegląd portfolio", "Zadanie projektowe", "Oferta"]
+    benefits: [],
+    process: []
   }
 ];
 

@@ -1,4 +1,5 @@
 import { jobs, type Job } from "@/lib/data/jobs";
+import { calculateRabotajScore } from "@/lib/rabotaj-score";
 
 export type FilterState = {
   country: string;
@@ -11,6 +12,7 @@ export type FilterState = {
   language: string;
   industry: string;
   verifiedOnly: boolean;
+  minScore: number;
 };
 
 export const defaultFilters: FilterState = {
@@ -23,8 +25,11 @@ export const defaultFilters: FilterState = {
   experience: "",
   language: "",
   industry: "",
-  verifiedOnly: false
+  verifiedOnly: false,
+  minScore: 0
 };
+
+export const scoreFilterOptions = [50, 70, 85];
 
 export const filterOptions = {
   countries: Array.from(new Set(jobs.map((job) => job.country))).sort(),
@@ -35,7 +40,7 @@ export const filterOptions = {
   industries: Array.from(new Set(jobs.map((job) => job.industry))).sort()
 };
 
-export type SortOption = "newest" | "salary-high" | "match";
+export type SortOption = "newest" | "salary-high" | "match" | "score-high";
 
 export function applyFilters(list: Job[], query: string, filters: FilterState, locationQuery = "") {
   const normalizedQuery = query.trim().toLowerCase();
@@ -60,6 +65,7 @@ export function applyFilters(list: Job[], query: string, filters: FilterState, l
     if (filters.language && job.language !== filters.language) return false;
     if (filters.industry && job.industry !== filters.industry) return false;
     if (filters.verifiedOnly && !job.verifiedEmployer) return false;
+    if (filters.minScore && calculateRabotajScore(job).score < filters.minScore) return false;
     return true;
   });
 }
@@ -71,6 +77,8 @@ export function sortJobs(list: Job[], sort: SortOption) {
       return copy.sort((a, b) => b.salaryMax - a.salaryMax);
     case "match":
       return copy.sort((a, b) => b.matchPercent - a.matchPercent);
+    case "score-high":
+      return copy.sort((a, b) => calculateRabotajScore(b).score - calculateRabotajScore(a).score);
     case "newest":
     default:
       return copy.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());

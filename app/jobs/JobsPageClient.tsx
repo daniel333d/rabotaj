@@ -87,7 +87,7 @@ export function JobsPageClient() {
           </aside>
 
           <div>
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => setMobileFiltersOpen(true)}
@@ -97,16 +97,17 @@ export function JobsPageClient() {
                 {t.common.filters}
               </button>
 
-              <label className="ml-auto flex items-center gap-2 text-sm text-muted">
+              <label className="ml-auto flex min-w-0 items-center gap-2 text-sm text-muted">
                 {t.common.sortBy}
                 <select
                   value={sort}
                   onChange={(event) => setSort(event.target.value as SortOption)}
-                  className="rounded-xl border border-border bg-white px-3 py-2 text-sm font-semibold text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand"
+                  className="max-w-full rounded-xl border border-border bg-white px-3 py-2 text-sm font-semibold text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand"
                 >
                   <option value="newest">{t.jobsPage.sortNewest}</option>
                   <option value="salary-high">{t.jobsPage.sortSalaryHigh}</option>
                   <option value="match">{t.jobsPage.sortMatch}</option>
+                  <option value="score-high">{t.rabotajScore.sortHighestScore}</option>
                 </select>
               </label>
             </div>
@@ -114,7 +115,7 @@ export function JobsPageClient() {
             {pageItems.length > 0 ? (
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {pageItems.map((job) => (
-                  <JobCard key={job.slug} job={job} />
+                  <JobCard key={job.slug} job={job} scoreVariant="standard" />
                 ))}
               </div>
             ) : (

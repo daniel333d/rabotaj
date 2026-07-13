@@ -1,7 +1,8 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n/context";
-import { defaultFilters, filterOptions, type FilterState } from "@/lib/filters";
+import { defaultFilters, filterOptions, scoreFilterOptions, type FilterState } from "@/lib/filters";
+import { cn } from "@/lib/utils";
 
 export function FilterPanel({
   filters,
@@ -96,6 +97,31 @@ export function FilterPanel({
         checked={filters.verifiedOnly}
         onChange={(value) => update("verifiedOnly", value)}
       />
+
+      <div>
+        <span className="text-xs font-semibold text-ink">{t.rabotajScore.minScoreFilter}</span>
+        <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label={t.rabotajScore.minScoreFilter}>
+          {scoreFilterOptions.map((threshold) => {
+            const active = filters.minScore === threshold;
+            return (
+              <button
+                key={threshold}
+                type="button"
+                aria-pressed={active}
+                onClick={() => update("minScore", active ? 0 : threshold)}
+                className={cn(
+                  "rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors duration-150",
+                  active
+                    ? "border-brand bg-brand-light text-brand"
+                    : "border-border bg-white text-ink hover:border-brand hover:text-brand"
+                )}
+              >
+                {threshold}+
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

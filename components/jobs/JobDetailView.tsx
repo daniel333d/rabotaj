@@ -21,6 +21,7 @@ import { Badge } from "@/components/ui/Badge";
 import { JobCard } from "@/components/jobs/JobCard";
 import { ApplyButton } from "@/components/jobs/ApplyButton";
 import { SaveButton } from "@/components/jobs/SaveButton";
+import { RabotajScore } from "@/components/rabotaj-score/RabotajScore";
 
 export function JobDetailView({ job }: { job: Job }) {
   const { t } = useI18n();
@@ -140,6 +141,8 @@ export function JobDetailView({ job }: { job: Job }) {
         </div>
 
         <aside className="flex flex-col gap-6">
+          <RabotajScore job={job} variant="detailed" />
+
           <div className="rounded-2xl border border-border bg-white p-6 shadow-soft">
             <h2 className="font-heading text-sm font-bold text-ink">Szczegóły oferty</h2>
             <dl className="mt-4 flex flex-col gap-3.5 text-sm">
