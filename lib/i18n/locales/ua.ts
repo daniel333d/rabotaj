@@ -31,7 +31,9 @@ const ua: Dictionary = {
     employers: "Роботодавцям",
     login: "Увійти",
     register: "Створити акаунт",
-    postJob: "Додати вакансію"
+    postJob: "Додати вакансію",
+    dashboard: "Кабінет",
+    logout: "Вийти"
   },
   hero: {
     headline: "Працюй без кордонів.",
@@ -121,7 +123,10 @@ const ua: Dictionary = {
       "Кандидата відібрано",
       "Запрошення на співбесіду",
       "Пропозиція роботи"
-    ]
+    ],
+    hired: "Найнято",
+    rejected: "Відхилено",
+    withdrawnStatus: "Відкликано"
   },
   companies: {
     kicker: "Рекомендовані компанії",
@@ -212,7 +217,15 @@ const ua: Dictionary = {
     workModel: "Модель роботи",
     location: "Локація",
     salaryLabel: "Зарплата",
-    published: "Опубліковано"
+    published: "Опубліковано",
+    applyModalTitle: "Подати заявку на вакансію",
+    messageLabel: "Повідомлення (необов'язково)",
+    expectedSalaryLabel: "Очікувана зарплата",
+    availabilityLabel: "Доступність з",
+    sendApplication: "Надіслати заявку",
+    alreadyApplied: "Заявку вже подано",
+    loginToApply: "Увійди, щоб подати заявку",
+    loginToSave: "Увійди, щоб зберегти вакансію"
   },
   dashboard: {
     welcome: "З поверненням",
@@ -222,7 +235,22 @@ const ua: Dictionary = {
     interviews: "Запрошення на співбесіди",
     passportCompleteness: "Заповненість Career Passport",
     myApplications: "Твої заявки",
-    recommended: "Рекомендовано для тебе"
+    recommended: "Рекомендовано для тебе",
+    tabOverview: "Огляд",
+    tabApplications: "Мої заявки",
+    tabSaved: "Збережені вакансії",
+    tabPassport: "Career Passport",
+    tabAlerts: "Сповіщення",
+    tabSettings: "Налаштування",
+    savedJobsCount: "Збережені вакансії",
+    noApplications: "У тебе ще немає заявок.",
+    noSaved: "Ти ще не зберіг(ла) жодної вакансії.",
+    noRecommended: "Поки що немає рекомендацій.",
+    alertsComingSoon: "Незабаром тут з'являться сповіщення про нові підходящі вакансії.",
+    settingsTitle: "Налаштування акаунта",
+    settingsSaved: "Зміни збережено",
+    withdraw: "Відкликати заявку",
+    withdrawn: "Заявку відкликано"
   },
   auth: {
     loginTitle: "Увійти в Rabotaj",
@@ -230,12 +258,33 @@ const ua: Dictionary = {
     email: "Електронна адреса",
     password: "Пароль",
     fullName: "Ім'я та прізвище",
+    firstName: "Ім'я",
+    lastName: "Прізвище",
+    confirmPassword: "Повторіть пароль",
     loginCta: "Увійти",
     registerCta: "Створити акаунт",
     noAccount: "Немає акаунта?",
     haveAccount: "Вже маєш акаунт?",
     registerLink: "Зареєструватись",
-    loginLink: "Увійти"
+    loginLink: "Увійти",
+    roleQuestion: "Хто ти?",
+    roleCandidate: "Шукаю роботу",
+    roleEmployer: "Наймаю",
+    forgotPassword: "Забув(ла) пароль?",
+    resetPasswordTitle: "Скинути пароль",
+    resetPasswordIntro: "Вкажи e-mail, пов'язаний з акаунтом — надішлемо посилання для встановлення нового пароля.",
+    resetPasswordCta: "Надіслати посилання",
+    resetPasswordSuccess: "Якщо акаунт існує, ми надіслали посилання для скидання пароля на вказану адресу.",
+    updatePasswordTitle: "Встанови новий пароль",
+    updatePasswordCta: "Зберегти новий пароль",
+    updatePasswordSuccess: "Пароль оновлено.",
+    registerSuccessCheckEmail: "Перевір пошту, щоб підтвердити акаунт.",
+    backendNotConfigured: "Бекенд ще не налаштовано. Зв'яжись з адміністратором сервісу.",
+    genericError: "Щось пішло не так. Спробуй ще раз.",
+    invalidCredentials: "Неправильний e-mail або пароль.",
+    emailAlreadyRegistered: "Ця адреса e-mail вже зареєстрована.",
+    linkExpired: "Це посилання застаріло або недійсне. Запроси нове.",
+    accountBlocked: "Цей акаунт заблоковано. Зв'яжись зі службою підтримки."
   },
   toast: {
     jobSaved: "Вакансію збережено",

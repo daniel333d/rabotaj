@@ -3,8 +3,8 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SlidersHorizontal, X, Search, MapPin } from "lucide-react";
-import { jobs } from "@/lib/data/jobs";
-import { applyFilters, defaultFilters, sortJobs, type FilterState, type SortOption } from "@/lib/filters";
+import type { Job } from "@/lib/data/jobs";
+import { applyFilters, defaultFilters, getFilterOptions, sortJobs, type FilterState, type SortOption } from "@/lib/filters";
 import { JobCard } from "@/components/jobs/JobCard";
 import { FilterPanel } from "@/components/jobs/FilterPanel";
 import { Pagination } from "@/components/ui/Pagination";
@@ -12,9 +12,10 @@ import { useI18n } from "@/lib/i18n/context";
 
 const PAGE_SIZE = 6;
 
-export function JobsPageClient() {
+export function JobsPageClient({ jobs }: { jobs: Job[] }) {
   const { t } = useI18n();
   const searchParams = useSearchParams();
+  const filterOptions = useMemo(() => getFilterOptions(jobs), [jobs]);
 
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
   const [locationQuery, setLocationQuery] = useState(searchParams.get("loc") ?? "");
@@ -33,7 +34,7 @@ export function JobsPageClient() {
   const filtered = useMemo(() => {
     const result = applyFilters(jobs, query, filters, locationQuery);
     return sortJobs(result, sort);
-  }, [query, locationQuery, filters, sort]);
+  }, [jobs, query, locationQuery, filters, sort]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -82,7 +83,7 @@ export function JobsPageClient() {
         <div className="mt-6 grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="hidden lg:block">
             <div className="sticky top-24 rounded-2xl border border-border bg-white p-6 shadow-soft">
-              <FilterPanel filters={filters} onChange={updateFilters} />
+              <FilterPanel filters={filters} onChange={updateFilters} options={filterOptions} />
             </div>
           </aside>
 
@@ -144,7 +145,7 @@ export function JobsPageClient() {
                 <X size={18} aria-hidden="true" />
               </button>
             </div>
-            <FilterPanel filters={filters} onChange={updateFilters} hideTitle />
+            <FilterPanel filters={filters} onChange={updateFilters} options={filterOptions} hideTitle />
             <button
               type="button"
               onClick={() => setMobileFiltersOpen(false)}

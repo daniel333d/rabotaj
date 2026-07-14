@@ -1,25 +1,30 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useActionState } from "react";
 import Link from "next/link";
-import { LogIn } from "lucide-react";
+import { LogIn, AlertCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
-import { useToast } from "@/lib/toast-context";
-import { Button } from "@/components/ui/Button";
+import { loginAction, type ActionState } from "@/lib/actions/auth";
+
+const initialState: ActionState = {};
+
+function errorKey(error?: string) {
+  switch (error) {
+    case "backend-not-configured":
+      return "backendNotConfigured";
+    case "invalid-credentials":
+      return "invalidCredentials";
+    case "account-blocked":
+      return "accountBlocked";
+    default:
+      return error ? "genericError" : undefined;
+  }
+}
 
 export default function LoginPage() {
   const { t } = useI18n();
-  const { showToast } = useToast();
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    showToast("Zalogowano (wersja demonstracyjna)");
-    router.push("/dashboard");
-  }
+  const [state, formAction, pending] = useActionState(loginAction, initialState);
+  const key = errorKey(state.error);
 
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-surface px-6 py-16">
@@ -29,12 +34,28 @@ export default function LoginPage() {
         </span>
         <h1 className="mt-4 font-heading text-xl font-extrabold text-ink">{t.auth.loginTitle}</h1>
 
-        <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
-          <Field label={t.auth.email} type="email" value={email} onChange={setEmail} required />
-          <Field label={t.auth.password} type="password" value={password} onChange={setPassword} required />
-          <Button type="submit" variant="primary" className="mt-2 w-full">
-            {t.auth.loginCta}
-          </Button>
+        {key && (
+          <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm text-red-700" role="alert">
+            <AlertCircle size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+            {t.auth[key as keyof typeof t.auth]}
+          </div>
+        )}
+
+        <form action={formAction} className="mt-6 flex flex-col gap-4">
+          <Field label={t.auth.email} name="email" type="email" required />
+          <Field label={t.auth.password} name="password" type="password" required />
+          <div className="text-right">
+            <Link href="/reset-password" className="text-xs font-semibold text-brand hover:underline">
+              {t.auth.forgotPassword}
+            </Link>
+          </div>
+          <button
+            type="submit"
+            disabled={pending}
+            className="mt-2 w-full rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {pending ? t.common.loading : t.auth.loginCta}
+          </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-muted">
@@ -50,24 +71,21 @@ export default function LoginPage() {
 
 function Field({
   label,
+  name,
   type,
-  value,
-  onChange,
   required
 }: {
   label: string;
+  name: string;
   type: string;
-  value: string;
-  onChange: (value: string) => void;
   required?: boolean;
 }) {
   return (
     <label className="flex flex-col gap-1.5">
       <span className="text-xs font-semibold text-ink">{label}</span>
       <input
+        name={name}
         type={type}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
         required={required}
         className="rounded-xl border border-border bg-white px-4 py-3 text-sm text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand"
       />

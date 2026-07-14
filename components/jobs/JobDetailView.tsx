@@ -23,10 +23,19 @@ import { ApplyButton } from "@/components/jobs/ApplyButton";
 import { SaveButton } from "@/components/jobs/SaveButton";
 import { RabotajScore } from "@/components/rabotaj-score/RabotajScore";
 
-export function JobDetailView({ job }: { job: Job }) {
+type JobDetailViewProps = {
+  job: Job;
+  similar?: Job[];
+  jobId?: string;
+  isLoggedIn?: boolean;
+  alreadyApplied?: boolean;
+  initialSaved?: boolean;
+};
+
+export function JobDetailView({ job, similar: similarProp, jobId, isLoggedIn, alreadyApplied, initialSaved }: JobDetailViewProps) {
   const { t } = useI18n();
   const company = getCompanyBySlug(job.companySlug);
-  const similar = getSimilarJobs(job);
+  const similar = similarProp ?? getSimilarJobs(job);
 
   if (!company) return null;
 
@@ -64,8 +73,8 @@ export function JobDetailView({ job }: { job: Job }) {
             </div>
 
             <div className="hidden shrink-0 gap-3 sm:flex">
-              <SaveButton slug={job.slug} />
-              <ApplyButton />
+              <SaveButton slug={job.slug} jobId={jobId} isLoggedIn={isLoggedIn} initialSaved={initialSaved} />
+              <ApplyButton jobId={jobId} isLoggedIn={isLoggedIn} alreadyApplied={alreadyApplied} />
             </div>
           </div>
 
@@ -177,8 +186,8 @@ export function JobDetailView({ job }: { job: Job }) {
 
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-white/95 p-4 backdrop-blur-sm lg:hidden">
         <div className="flex items-center gap-3">
-          <SaveButton slug={job.slug} className="flex-1" />
-          <ApplyButton full className="flex-[2]" />
+          <SaveButton slug={job.slug} jobId={jobId} isLoggedIn={isLoggedIn} initialSaved={initialSaved} className="flex-1" />
+          <ApplyButton full jobId={jobId} isLoggedIn={isLoggedIn} alreadyApplied={alreadyApplied} className="flex-[2]" />
         </div>
       </div>
     </div>

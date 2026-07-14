@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Menu, X, Plus } from "lucide-react";
+import { Menu, X, Plus, User, LayoutDashboard, LogOut, ChevronDown } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
+import { logoutAction } from "@/lib/actions/auth";
+import { getPostAuthRedirect } from "@/lib/auth/redirect";
+import type { SessionProfile } from "@/lib/auth/session";
 
-export function Navbar() {
+export function Navbar({ profile }: { profile: SessionProfile | null }) {
   const { t } = useI18n();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,12 +43,18 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitcher />
-          <Button href="/login" variant="ghost" size="sm">
-            {t.nav.login}
-          </Button>
-          <Button href="/register" variant="outline" size="sm">
-            {t.nav.register}
-          </Button>
+          {profile ? (
+            <UserMenu profile={profile} />
+          ) : (
+            <>
+              <Button href="/login" variant="ghost" size="sm">
+                {t.nav.login}
+              </Button>
+              <Button href="/register" variant="outline" size="sm">
+                {t.nav.register}
+              </Button>
+            </>
+          )}
           <Button href="/employers" variant="primary" size="sm">
             <Plus size={16} aria-hidden="true" />
             {t.nav.postJob}
@@ -97,12 +106,36 @@ export function Navbar() {
             <LanguageSwitcher className="self-start" />
 
             <div className="mt-auto flex flex-col gap-3 border-t border-border pt-6">
-              <Button href="/login" variant="outline" onClick={() => setMobileOpen(false)}>
-                {t.nav.login}
-              </Button>
-              <Button href="/register" variant="secondary" onClick={() => setMobileOpen(false)}>
-                {t.nav.register}
-              </Button>
+              {profile ? (
+                <>
+                  <Button
+                    href={getPostAuthRedirect(profile.role)}
+                    variant="outline"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <LayoutDashboard size={16} aria-hidden="true" />
+                    {profile.firstName ?? profile.email}
+                  </Button>
+                  <form action={logoutAction}>
+                    <button
+                      type="submit"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand hover:text-brand"
+                    >
+                      <LogOut size={16} aria-hidden="true" />
+                      {t.nav.logout}
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <Button href="/login" variant="outline" onClick={() => setMobileOpen(false)}>
+                    {t.nav.login}
+                  </Button>
+                  <Button href="/register" variant="secondary" onClick={() => setMobileOpen(false)}>
+                    {t.nav.register}
+                  </Button>
+                </>
+              )}
               <Button href="/employers" variant="primary" onClick={() => setMobileOpen(false)}>
                 <Plus size={16} aria-hidden="true" />
                 {t.nav.postJob}
@@ -112,5 +145,63 @@ export function Navbar() {
         </div>
       )}
     </header>
+  );
+}
+
+function UserMenu({ profile }: { profile: SessionProfile }) {
+  const { t } = useI18n();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className="flex items-center gap-2 rounded-xl border border-border px-3 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand hover:text-brand"
+      >
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-light text-brand">
+          <User size={13} aria-hidden="true" />
+        </span>
+        {profile.firstName ?? profile.email}
+        <ChevronDown size={14} aria-hidden="true" />
+      </button>
+      {open && (
+        <div
+          role="menu"
+          className="animate-fade-in absolute right-0 top-full z-30 mt-2 w-52 overflow-hidden rounded-xl border border-border bg-white py-1 shadow-elevated"
+        >
+          <Link
+            href={getPostAuthRedirect(profile.role)}
+            role="menuitem"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-150 hover:bg-brand-light hover:text-brand"
+          >
+            <LayoutDashboard size={15} aria-hidden="true" />
+            {t.nav.dashboard}
+          </Link>
+          <form action={logoutAction}>
+            <button
+              type="submit"
+              role="menuitem"
+              className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-sm font-medium text-ink transition-colors duration-150 hover:bg-brand-light hover:text-brand"
+            >
+              <LogOut size={15} aria-hidden="true" />
+              {t.nav.logout}
+            </button>
+          </form>
+        </div>
+      )}
+    </div>
   );
 }

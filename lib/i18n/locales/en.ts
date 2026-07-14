@@ -31,7 +31,9 @@ const en: Dictionary = {
     employers: "For Employers",
     login: "Log in",
     register: "Sign up",
-    postJob: "Post a job"
+    postJob: "Post a job",
+    dashboard: "Dashboard",
+    logout: "Log out"
   },
   hero: {
     headline: "Work without borders.",
@@ -121,7 +123,10 @@ const en: Dictionary = {
       "Candidate shortlisted",
       "Interview invitation",
       "Job offer"
-    ]
+    ],
+    hired: "Hired",
+    rejected: "Rejected",
+    withdrawnStatus: "Withdrawn"
   },
   companies: {
     kicker: "Featured companies",
@@ -212,7 +217,15 @@ const en: Dictionary = {
     workModel: "Work model",
     location: "Location",
     salaryLabel: "Salary",
-    published: "Posted"
+    published: "Posted",
+    applyModalTitle: "Apply for this job",
+    messageLabel: "Message (optional)",
+    expectedSalaryLabel: "Expected salary",
+    availabilityLabel: "Available from",
+    sendApplication: "Send application",
+    alreadyApplied: "Already applied",
+    loginToApply: "Log in to apply",
+    loginToSave: "Log in to save this job"
   },
   dashboard: {
     welcome: "Welcome back",
@@ -222,7 +235,22 @@ const en: Dictionary = {
     interviews: "Interview invitations",
     passportCompleteness: "Career Passport completeness",
     myApplications: "Your applications",
-    recommended: "Recommended for you"
+    recommended: "Recommended for you",
+    tabOverview: "Overview",
+    tabApplications: "My applications",
+    tabSaved: "Saved jobs",
+    tabPassport: "Career Passport",
+    tabAlerts: "Alerts",
+    tabSettings: "Settings",
+    savedJobsCount: "Saved jobs",
+    noApplications: "You don't have any applications yet.",
+    noSaved: "You haven't saved any jobs yet.",
+    noRecommended: "No recommendations yet.",
+    alertsComingSoon: "Email alerts about new matching jobs will appear here soon.",
+    settingsTitle: "Account settings",
+    settingsSaved: "Changes saved",
+    withdraw: "Withdraw application",
+    withdrawn: "Application withdrawn"
   },
   auth: {
     loginTitle: "Log in to Rabotaj",
@@ -230,12 +258,33 @@ const en: Dictionary = {
     email: "Email address",
     password: "Password",
     fullName: "Full name",
+    firstName: "First name",
+    lastName: "Last name",
+    confirmPassword: "Confirm password",
     loginCta: "Log in",
     registerCta: "Create account",
     noAccount: "Don't have an account?",
     haveAccount: "Already have an account?",
     registerLink: "Sign up",
-    loginLink: "Log in"
+    loginLink: "Log in",
+    roleQuestion: "Who are you?",
+    roleCandidate: "I'm looking for a job",
+    roleEmployer: "I'm hiring",
+    forgotPassword: "Forgot your password?",
+    resetPasswordTitle: "Reset your password",
+    resetPasswordIntro: "Enter the email address linked to your account — we'll send you a link to set a new password.",
+    resetPasswordCta: "Send reset link",
+    resetPasswordSuccess: "If an account exists, we've sent a password reset link to that email address.",
+    updatePasswordTitle: "Set a new password",
+    updatePasswordCta: "Save new password",
+    updatePasswordSuccess: "Your password has been updated.",
+    registerSuccessCheckEmail: "Check your inbox to confirm your account.",
+    backendNotConfigured: "The backend isn't configured yet. Please contact the site administrator.",
+    genericError: "Something went wrong. Please try again.",
+    invalidCredentials: "Invalid email or password.",
+    emailAlreadyRegistered: "This email address is already registered.",
+    linkExpired: "This link has expired or is invalid. Please request a new one.",
+    accountBlocked: "This account has been blocked. Please contact support."
   },
   toast: {
     jobSaved: "Job saved",

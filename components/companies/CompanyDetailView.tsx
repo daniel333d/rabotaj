@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ShieldCheck, Clock3, Heart, Eye, MapPin, Users, CalendarRange, Gauge } from "lucide-react";
 import type { Company } from "@/lib/data/companies";
-import { jobs } from "@/lib/data/jobs";
+import { jobs as staticJobs, type Job } from "@/lib/data/jobs";
 import { CompanyLogo } from "@/components/ui/CompanyLogo";
 import { Badge } from "@/components/ui/Badge";
 import { JobCard } from "@/components/jobs/JobCard";
@@ -12,9 +12,9 @@ import { calculateRabotajScore, getRabotajScoreLevel } from "@/lib/rabotaj-score
 import { ScoreRing } from "@/components/rabotaj-score/ScoreRing";
 import { levelTheme } from "@/components/rabotaj-score/levelTheme";
 
-export function CompanyDetailView({ company }: { company: Company }) {
+export function CompanyDetailView({ company, jobs }: { company: Company; jobs?: Job[] }) {
   const { t } = useI18n();
-  const companyJobs = jobs.filter((job) => job.companySlug === company.slug);
+  const companyJobs = (jobs ?? staticJobs).filter((job) => job.companySlug === company.slug);
   const averageScore =
     companyJobs.length > 0
       ? Math.round(

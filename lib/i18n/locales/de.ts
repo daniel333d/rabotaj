@@ -31,7 +31,9 @@ const de: Dictionary = {
     employers: "Für Arbeitgeber",
     login: "Anmelden",
     register: "Registrieren",
-    postJob: "Stelle inserieren"
+    postJob: "Stelle inserieren",
+    dashboard: "Konto",
+    logout: "Abmelden"
   },
   hero: {
     headline: "Arbeiten ohne Grenzen.",
@@ -121,7 +123,10 @@ const de: Dictionary = {
       "Kandidat vorqualifiziert",
       "Einladung zum Gespräch",
       "Jobangebot"
-    ]
+    ],
+    hired: "Eingestellt",
+    rejected: "Abgelehnt",
+    withdrawnStatus: "Zurückgezogen"
   },
   companies: {
     kicker: "Empfohlene Unternehmen",
@@ -212,7 +217,15 @@ const de: Dictionary = {
     workModel: "Arbeitsmodell",
     location: "Standort",
     salaryLabel: "Gehalt",
-    published: "Veröffentlicht"
+    published: "Veröffentlicht",
+    applyModalTitle: "Auf diese Stelle bewerben",
+    messageLabel: "Nachricht (optional)",
+    expectedSalaryLabel: "Gehaltsvorstellung",
+    availabilityLabel: "Verfügbar ab",
+    sendApplication: "Bewerbung senden",
+    alreadyApplied: "Bereits beworben",
+    loginToApply: "Melde dich an, um dich zu bewerben",
+    loginToSave: "Melde dich an, um diese Stelle zu speichern"
   },
   dashboard: {
     welcome: "Willkommen zurück",
@@ -222,7 +235,22 @@ const de: Dictionary = {
     interviews: "Einladungen zum Gespräch",
     passportCompleteness: "Career-Passport-Vollständigkeit",
     myApplications: "Deine Bewerbungen",
-    recommended: "Für dich empfohlen"
+    recommended: "Für dich empfohlen",
+    tabOverview: "Übersicht",
+    tabApplications: "Meine Bewerbungen",
+    tabSaved: "Gespeicherte Stellen",
+    tabPassport: "Career Passport",
+    tabAlerts: "Benachrichtigungen",
+    tabSettings: "Einstellungen",
+    savedJobsCount: "Gespeicherte Stellen",
+    noApplications: "Du hast noch keine Bewerbungen.",
+    noSaved: "Du hast noch keine Stellen gespeichert.",
+    noRecommended: "Noch keine Empfehlungen.",
+    alertsComingSoon: "E-Mail-Benachrichtigungen über neue passende Stellen erscheinen hier bald.",
+    settingsTitle: "Kontoeinstellungen",
+    settingsSaved: "Änderungen gespeichert",
+    withdraw: "Bewerbung zurückziehen",
+    withdrawn: "Bewerbung zurückgezogen"
   },
   auth: {
     loginTitle: "Bei Rabotaj anmelden",
@@ -230,12 +258,33 @@ const de: Dictionary = {
     email: "E-Mail-Adresse",
     password: "Passwort",
     fullName: "Vor- und Nachname",
+    firstName: "Vorname",
+    lastName: "Nachname",
+    confirmPassword: "Passwort bestätigen",
     loginCta: "Anmelden",
     registerCta: "Konto erstellen",
     noAccount: "Noch kein Konto?",
     haveAccount: "Bereits ein Konto?",
     registerLink: "Registrieren",
-    loginLink: "Anmelden"
+    loginLink: "Anmelden",
+    roleQuestion: "Wer bist du?",
+    roleCandidate: "Ich suche einen Job",
+    roleEmployer: "Ich stelle ein",
+    forgotPassword: "Passwort vergessen?",
+    resetPasswordTitle: "Passwort zurücksetzen",
+    resetPasswordIntro: "Gib die mit deinem Konto verknüpfte E-Mail-Adresse ein — wir senden dir einen Link zum Zurücksetzen.",
+    resetPasswordCta: "Link zum Zurücksetzen senden",
+    resetPasswordSuccess: "Falls ein Konto existiert, haben wir einen Link zum Zurücksetzen an diese Adresse gesendet.",
+    updatePasswordTitle: "Neues Passwort festlegen",
+    updatePasswordCta: "Neues Passwort speichern",
+    updatePasswordSuccess: "Dein Passwort wurde aktualisiert.",
+    registerSuccessCheckEmail: "Bestätige dein Konto über den Link in deinem Postfach.",
+    backendNotConfigured: "Das Backend ist noch nicht konfiguriert. Bitte wende dich an den Administrator.",
+    genericError: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    invalidCredentials: "Ungültige E-Mail-Adresse oder ungültiges Passwort.",
+    emailAlreadyRegistered: "Diese E-Mail-Adresse ist bereits registriert.",
+    linkExpired: "Dieser Link ist abgelaufen oder ungültig. Fordere einen neuen an.",
+    accountBlocked: "Dieses Konto wurde gesperrt. Bitte wende dich an den Support."
   },
   toast: {
     jobSaved: "Stelle gespeichert",

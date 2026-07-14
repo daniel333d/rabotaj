@@ -1,4 +1,4 @@
-import { jobs, type Job } from "@/lib/data/jobs";
+import type { Job } from "@/lib/data/jobs";
 import { calculateRabotajScore } from "@/lib/rabotaj-score";
 
 export type FilterState = {
@@ -31,14 +31,19 @@ export const defaultFilters: FilterState = {
 
 export const scoreFilterOptions = [50, 70, 85];
 
-export const filterOptions = {
-  countries: Array.from(new Set(jobs.map((job) => job.country))).sort(),
-  cities: Array.from(new Set(jobs.map((job) => job.city))).sort(),
-  contractTypes: Array.from(new Set(jobs.map((job) => job.contractType))).sort(),
-  experiences: Array.from(new Set(jobs.map((job) => job.experience))),
-  languages: Array.from(new Set(jobs.map((job) => job.language))).sort(),
-  industries: Array.from(new Set(jobs.map((job) => job.industry))).sort()
-};
+export type FilterOptions = ReturnType<typeof getFilterOptions>;
+
+/** Derived from whichever job list is actually rendered (DB-backed or static fallback). */
+export function getFilterOptions(jobs: Job[]) {
+  return {
+    countries: Array.from(new Set(jobs.map((job) => job.country))).sort(),
+    cities: Array.from(new Set(jobs.map((job) => job.city))).sort(),
+    contractTypes: Array.from(new Set(jobs.map((job) => job.contractType))).sort(),
+    experiences: Array.from(new Set(jobs.map((job) => job.experience))),
+    languages: Array.from(new Set(jobs.map((job) => job.language))).sort(),
+    industries: Array.from(new Set(jobs.map((job) => job.industry))).sort()
+  };
+}
 
 export type SortOption = "newest" | "salary-high" | "match" | "score-high";
 

@@ -1,16 +1,18 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n/context";
-import { defaultFilters, filterOptions, scoreFilterOptions, type FilterState } from "@/lib/filters";
+import { defaultFilters, scoreFilterOptions, type FilterOptions, type FilterState } from "@/lib/filters";
 import { cn } from "@/lib/utils";
 
 export function FilterPanel({
   filters,
   onChange,
+  options,
   hideTitle = false
 }: {
   filters: FilterState;
   onChange: (filters: FilterState) => void;
+  options: FilterOptions;
   hideTitle?: boolean;
 }) {
   const { t } = useI18n();
@@ -36,13 +38,13 @@ export function FilterPanel({
         label={t.jobsPage.filterCountry}
         value={filters.country}
         onChange={(value) => update("country", value)}
-        options={filterOptions.countries}
+        options={options.countries}
       />
       <Select
         label={t.jobsPage.filterCity}
         value={filters.city}
         onChange={(value) => update("city", value)}
-        options={filterOptions.cities}
+        options={options.cities}
       />
 
       <Toggle
@@ -71,25 +73,25 @@ export function FilterPanel({
         label={t.jobsPage.filterContract}
         value={filters.contractType}
         onChange={(value) => update("contractType", value)}
-        options={filterOptions.contractTypes}
+        options={options.contractTypes}
       />
       <Select
         label={t.jobsPage.filterExperience}
         value={filters.experience}
         onChange={(value) => update("experience", value)}
-        options={filterOptions.experiences}
+        options={options.experiences}
       />
       <Select
         label={t.jobsPage.filterLanguage}
         value={filters.language}
         onChange={(value) => update("language", value)}
-        options={filterOptions.languages}
+        options={options.languages}
       />
       <Select
         label={t.jobsPage.filterIndustry}
         value={filters.industry}
         onChange={(value) => update("industry", value)}
-        options={filterOptions.industries}
+        options={options.industries}
       />
 
       <Toggle

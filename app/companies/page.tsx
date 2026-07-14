@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { companies } from "@/lib/data/companies";
+import { companies as staticCompanies } from "@/lib/data/companies";
+import { getAllCompaniesFromDb } from "@/lib/data/db-jobs";
 import { CompanyCard } from "@/components/companies/CompanyCard";
 
 export const metadata: Metadata = {
@@ -7,7 +8,10 @@ export const metadata: Metadata = {
   description: "Sprawdzeni pracodawcy w Polsce i Europie."
 };
 
-export default function CompaniesPage() {
+export default async function CompaniesPage() {
+  const dbCompanies = await getAllCompaniesFromDb();
+  const companies = dbCompanies ?? staticCompanies;
+
   return (
     <div className="bg-surface">
       <div className="container-page py-10 sm:py-14">

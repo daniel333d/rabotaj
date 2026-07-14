@@ -29,7 +29,9 @@ const pl = {
     employers: "Dla pracodawców",
     login: "Zaloguj się",
     register: "Załóż konto",
-    postJob: "Dodaj ogłoszenie"
+    postJob: "Dodaj ogłoszenie",
+    dashboard: "Panel",
+    logout: "Wyloguj się"
   },
   hero: {
     headline: "Pracuj bez granic.",
@@ -119,7 +121,10 @@ const pl = {
       "Kandydat zakwalifikowany",
       "Zaproszenie na rozmowę",
       "Oferta zatrudnienia"
-    ]
+    ],
+    hired: "Zatrudniony/a",
+    rejected: "Odrzucona",
+    withdrawnStatus: "Wycofana"
   },
   companies: {
     kicker: "Polecane firmy",
@@ -210,7 +215,15 @@ const pl = {
     workModel: "Model pracy",
     location: "Lokalizacja",
     salaryLabel: "Wynagrodzenie",
-    published: "Opublikowano"
+    published: "Opublikowano",
+    applyModalTitle: "Aplikuj na tę ofertę",
+    messageLabel: "Wiadomość (opcjonalnie)",
+    expectedSalaryLabel: "Oczekiwane wynagrodzenie",
+    availabilityLabel: "Dostępność od",
+    sendApplication: "Wyślij aplikację",
+    alreadyApplied: "Już zaaplikowano",
+    loginToApply: "Zaloguj się, aby aplikować",
+    loginToSave: "Zaloguj się, aby zapisać ofertę"
   },
   dashboard: {
     welcome: "Witaj z powrotem",
@@ -220,7 +233,22 @@ const pl = {
     interviews: "Zaproszenia na rozmowy",
     passportCompleteness: "Kompletność Career Passport",
     myApplications: "Twoje aplikacje",
-    recommended: "Polecane dla Ciebie"
+    recommended: "Polecane dla Ciebie",
+    tabOverview: "Przegląd",
+    tabApplications: "Moje aplikacje",
+    tabSaved: "Zapisane oferty",
+    tabPassport: "Career Passport",
+    tabAlerts: "Alerty",
+    tabSettings: "Ustawienia",
+    savedJobsCount: "Zapisane oferty",
+    noApplications: "Nie masz jeszcze żadnych aplikacji.",
+    noSaved: "Nie masz jeszcze zapisanych ofert.",
+    noRecommended: "Brak rekomendacji na razie.",
+    alertsComingSoon: "Alerty e-mail o nowych, dopasowanych ofertach pojawią się tutaj wkrótce.",
+    settingsTitle: "Ustawienia konta",
+    settingsSaved: "Zapisano zmiany",
+    withdraw: "Wycofaj aplikację",
+    withdrawn: "Aplikacja wycofana"
   },
   auth: {
     loginTitle: "Zaloguj się do Rabotaj",
@@ -228,12 +256,33 @@ const pl = {
     email: "Adres e-mail",
     password: "Hasło",
     fullName: "Imię i nazwisko",
+    firstName: "Imię",
+    lastName: "Nazwisko",
+    confirmPassword: "Powtórz hasło",
     loginCta: "Zaloguj się",
     registerCta: "Utwórz konto",
     noAccount: "Nie masz konta?",
     haveAccount: "Masz już konto?",
     registerLink: "Zarejestruj się",
-    loginLink: "Zaloguj się"
+    loginLink: "Zaloguj się",
+    roleQuestion: "Kim jesteś?",
+    roleCandidate: "Szukam pracy",
+    roleEmployer: "Zatrudniam",
+    forgotPassword: "Nie pamiętasz hasła?",
+    resetPasswordTitle: "Zresetuj hasło",
+    resetPasswordIntro: "Podaj adres e-mail powiązany z kontem — wyślemy link do ustawienia nowego hasła.",
+    resetPasswordCta: "Wyślij link resetujący",
+    resetPasswordSuccess: "Jeśli konto istnieje, wysłaliśmy link do resetu hasła na podany adres e-mail.",
+    updatePasswordTitle: "Ustaw nowe hasło",
+    updatePasswordCta: "Zapisz nowe hasło",
+    updatePasswordSuccess: "Hasło zostało zaktualizowane.",
+    registerSuccessCheckEmail: "Sprawdź swoją skrzynkę e-mail, aby potwierdzić konto.",
+    backendNotConfigured: "Backend nie jest jeszcze skonfigurowany. Skontaktuj się z administratorem serwisu.",
+    genericError: "Coś poszło nie tak. Spróbuj ponownie.",
+    invalidCredentials: "Nieprawidłowy e-mail lub hasło.",
+    emailAlreadyRegistered: "Ten adres e-mail jest już zarejestrowany.",
+    linkExpired: "Ten link wygasł lub jest nieprawidłowy. Poproś o nowy.",
+    accountBlocked: "To konto zostało zablokowane. Skontaktuj się z pomocą techniczną."
   },
   toast: {
     jobSaved: "Oferta zapisana",

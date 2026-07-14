@@ -6,6 +6,7 @@ import { ToastProvider } from "@/lib/toast-context";
 import { SavedJobsProvider } from "@/lib/saved-jobs-context";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { getSessionProfile } from "@/lib/auth/session";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -24,14 +25,16 @@ export const metadata: Metadata = {
     "Znajdź sprawdzoną pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji."
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const profile = await getSessionProfile();
+
   return (
     <html lang="pl" className={`${manrope.variable} ${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-surface font-sans text-ink antialiased">
         <I18nProvider>
           <ToastProvider>
             <SavedJobsProvider>
-              <Navbar />
+              <Navbar profile={profile} />
               <main className="flex-1">{children}</main>
               <Footer />
             </SavedJobsProvider>

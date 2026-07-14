@@ -31,7 +31,9 @@ const es: Dictionary = {
     employers: "Para empresas",
     login: "Iniciar sesión",
     register: "Crear cuenta",
-    postJob: "Publicar empleo"
+    postJob: "Publicar empleo",
+    dashboard: "Panel",
+    logout: "Cerrar sesión"
   },
   hero: {
     headline: "Trabaja sin fronteras.",
@@ -121,7 +123,10 @@ const es: Dictionary = {
       "Candidato preseleccionado",
       "Invitación a entrevista",
       "Oferta de empleo"
-    ]
+    ],
+    hired: "Contratado/a",
+    rejected: "Rechazada",
+    withdrawnStatus: "Retirada"
   },
   companies: {
     kicker: "Empresas destacadas",
@@ -212,7 +217,15 @@ const es: Dictionary = {
     workModel: "Modalidad de trabajo",
     location: "Ubicación",
     salaryLabel: "Salario",
-    published: "Publicado"
+    published: "Publicado",
+    applyModalTitle: "Aplica a esta oferta",
+    messageLabel: "Mensaje (opcional)",
+    expectedSalaryLabel: "Salario esperado",
+    availabilityLabel: "Disponible desde",
+    sendApplication: "Enviar postulación",
+    alreadyApplied: "Ya has aplicado",
+    loginToApply: "Inicia sesión para aplicar",
+    loginToSave: "Inicia sesión para guardar esta oferta"
   },
   dashboard: {
     welcome: "Bienvenido de nuevo",
@@ -222,7 +235,22 @@ const es: Dictionary = {
     interviews: "Invitaciones a entrevista",
     passportCompleteness: "Progreso del Career Passport",
     myApplications: "Tus postulaciones",
-    recommended: "Recomendado para ti"
+    recommended: "Recomendado para ti",
+    tabOverview: "Resumen",
+    tabApplications: "Mis postulaciones",
+    tabSaved: "Ofertas guardadas",
+    tabPassport: "Career Passport",
+    tabAlerts: "Alertas",
+    tabSettings: "Ajustes",
+    savedJobsCount: "Ofertas guardadas",
+    noApplications: "Todavía no tienes postulaciones.",
+    noSaved: "Todavía no has guardado ninguna oferta.",
+    noRecommended: "Aún no hay recomendaciones.",
+    alertsComingSoon: "Las alertas por correo sobre nuevas ofertas compatibles aparecerán aquí pronto.",
+    settingsTitle: "Ajustes de la cuenta",
+    settingsSaved: "Cambios guardados",
+    withdraw: "Retirar postulación",
+    withdrawn: "Postulación retirada"
   },
   auth: {
     loginTitle: "Inicia sesión en Rabotaj",
@@ -230,12 +258,33 @@ const es: Dictionary = {
     email: "Correo electrónico",
     password: "Contraseña",
     fullName: "Nombre completo",
+    firstName: "Nombre",
+    lastName: "Apellidos",
+    confirmPassword: "Confirma la contraseña",
     loginCta: "Iniciar sesión",
     registerCta: "Crear cuenta",
     noAccount: "¿No tienes cuenta?",
     haveAccount: "¿Ya tienes cuenta?",
     registerLink: "Regístrate",
-    loginLink: "Inicia sesión"
+    loginLink: "Inicia sesión",
+    roleQuestion: "¿Quién eres?",
+    roleCandidate: "Busco empleo",
+    roleEmployer: "Quiero contratar",
+    forgotPassword: "¿Olvidaste tu contraseña?",
+    resetPasswordTitle: "Restablece tu contraseña",
+    resetPasswordIntro: "Indica el correo asociado a tu cuenta — te enviaremos un enlace para establecer una nueva contraseña.",
+    resetPasswordCta: "Enviar enlace",
+    resetPasswordSuccess: "Si la cuenta existe, hemos enviado un enlace de restablecimiento a ese correo.",
+    updatePasswordTitle: "Establece una nueva contraseña",
+    updatePasswordCta: "Guardar nueva contraseña",
+    updatePasswordSuccess: "Tu contraseña se ha actualizado.",
+    registerSuccessCheckEmail: "Revisa tu correo para confirmar la cuenta.",
+    backendNotConfigured: "El backend aún no está configurado. Contacta con el administrador del sitio.",
+    genericError: "Algo salió mal. Inténtalo de nuevo.",
+    invalidCredentials: "Correo o contraseña incorrectos.",
+    emailAlreadyRegistered: "Este correo electrónico ya está registrado.",
+    linkExpired: "Este enlace ha caducado o no es válido. Solicita uno nuevo.",
+    accountBlocked: "Esta cuenta ha sido bloqueada. Contacta con soporte."
   },
   toast: {
     jobSaved: "Empleo guardado",

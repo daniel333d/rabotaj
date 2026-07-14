@@ -131,6 +131,44 @@ export const companies: Company[] = [
       "PrimeHome Retail zarządza siecią salonów wyposażenia wnętrz w Polsce. Zespoły sprzedaży pracują w oparciu o jasny system prowizyjny i regularne szkolenia produktowe.",
     size: "200-400 pracowników",
     founded: 2009
+  },
+  {
+    slug: "greenfields-logistics",
+    name: "GreenFields Logistics",
+    initials: "GL",
+    color: "#0891B2",
+    industry: "Transport i logistyka",
+    country: "Holandia",
+    city: "Rotterdam",
+    openJobs: 5,
+    responseTime: "3 dni",
+    verified: true,
+    salaryDisclosed: true,
+    respondsFast: false,
+    foreignerFriendly: true,
+    description:
+      "GreenFields Logistics obsługuje centra dystrybucyjne dla klientów e-commerce w Beneluksie, zatrudniając pracowników magazynowych, kierowców i specjalistów ds. logistyki.",
+    size: "150-300 pracowników",
+    founded: 2011
+  },
+  {
+    slug: "alpine-precision",
+    name: "Alpine Precision",
+    initials: "AP",
+    color: "#7C3AED",
+    industry: "Produkcja przemysłowa",
+    country: "Czechy",
+    city: "Praga",
+    openJobs: 4,
+    responseTime: "3 dni",
+    verified: false,
+    salaryDisclosed: true,
+    respondsFast: false,
+    foreignerFriendly: true,
+    description:
+      "Alpine Precision produkuje precyzyjne komponenty dla przemysłu motoryzacyjnego w Europie Środkowej, zatrudniając operatorów CNC, techników jakości i inżynierów procesu.",
+    size: "80-150 pracowników",
+    founded: 2007
   }
 ];
 

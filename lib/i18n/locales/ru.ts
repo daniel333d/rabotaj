@@ -31,7 +31,9 @@ const ru: Dictionary = {
     employers: "Работодателям",
     login: "Войти",
     register: "Создать аккаунт",
-    postJob: "Добавить вакансию"
+    postJob: "Добавить вакансию",
+    dashboard: "Кабинет",
+    logout: "Выйти"
   },
   hero: {
     headline: "Работай без границ.",
@@ -121,7 +123,10 @@ const ru: Dictionary = {
       "Кандидат отобран",
       "Приглашение на собеседование",
       "Предложение о работе"
-    ]
+    ],
+    hired: "Нанят(а)",
+    rejected: "Отклонена",
+    withdrawnStatus: "Отозвана"
   },
   companies: {
     kicker: "Рекомендуемые компании",
@@ -212,7 +217,15 @@ const ru: Dictionary = {
     workModel: "Модель работы",
     location: "Локация",
     salaryLabel: "Зарплата",
-    published: "Опубликовано"
+    published: "Опубликовано",
+    applyModalTitle: "Откликнуться на вакансию",
+    messageLabel: "Сообщение (необязательно)",
+    expectedSalaryLabel: "Ожидаемая зарплата",
+    availabilityLabel: "Доступность с",
+    sendApplication: "Отправить отклик",
+    alreadyApplied: "Отклик уже отправлен",
+    loginToApply: "Войди, чтобы откликнуться",
+    loginToSave: "Войди, чтобы сохранить вакансию"
   },
   dashboard: {
     welcome: "С возвращением",
@@ -222,7 +235,22 @@ const ru: Dictionary = {
     interviews: "Приглашения на собеседования",
     passportCompleteness: "Заполненность Career Passport",
     myApplications: "Твои отклики",
-    recommended: "Рекомендовано для тебя"
+    recommended: "Рекомендовано для тебя",
+    tabOverview: "Обзор",
+    tabApplications: "Мои отклики",
+    tabSaved: "Сохранённые вакансии",
+    tabPassport: "Career Passport",
+    tabAlerts: "Уведомления",
+    tabSettings: "Настройки",
+    savedJobsCount: "Сохранённые вакансии",
+    noApplications: "У тебя пока нет откликов.",
+    noSaved: "Ты пока не сохранил(а) ни одной вакансии.",
+    noRecommended: "Пока нет рекомендаций.",
+    alertsComingSoon: "Скоро здесь появятся уведомления о новых подходящих вакансиях.",
+    settingsTitle: "Настройки аккаунта",
+    settingsSaved: "Изменения сохранены",
+    withdraw: "Отозвать отклик",
+    withdrawn: "Отклик отозван"
   },
   auth: {
     loginTitle: "Войти в Rabotaj",
@@ -230,12 +258,33 @@ const ru: Dictionary = {
     email: "Email адрес",
     password: "Пароль",
     fullName: "Имя и фамилия",
+    firstName: "Имя",
+    lastName: "Фамилия",
+    confirmPassword: "Повторите пароль",
     loginCta: "Войти",
     registerCta: "Создать аккаунт",
     noAccount: "Нет аккаунта?",
     haveAccount: "Уже есть аккаунт?",
     registerLink: "Зарегистрироваться",
-    loginLink: "Войти"
+    loginLink: "Войти",
+    roleQuestion: "Кто ты?",
+    roleCandidate: "Ищу работу",
+    roleEmployer: "Нанимаю",
+    forgotPassword: "Забыли пароль?",
+    resetPasswordTitle: "Сбросить пароль",
+    resetPasswordIntro: "Укажи email, привязанный к аккаунту — отправим ссылку для установки нового пароля.",
+    resetPasswordCta: "Отправить ссылку",
+    resetPasswordSuccess: "Если аккаунт существует, мы отправили ссылку для сброса пароля на указанный адрес.",
+    updatePasswordTitle: "Установи новый пароль",
+    updatePasswordCta: "Сохранить новый пароль",
+    updatePasswordSuccess: "Пароль обновлён.",
+    registerSuccessCheckEmail: "Проверь почту, чтобы подтвердить аккаунт.",
+    backendNotConfigured: "Бэкенд ещё не настроен. Свяжись с администратором сервиса.",
+    genericError: "Что-то пошло не так. Попробуй ещё раз.",
+    invalidCredentials: "Неверный email или пароль.",
+    emailAlreadyRegistered: "Этот адрес email уже зарегистрирован.",
+    linkExpired: "Эта ссылка устарела или недействительна. Запроси новую.",
+    accountBlocked: "Этот аккаунт заблокирован. Свяжись со службой поддержки."
   },
   toast: {
     jobSaved: "Вакансия сохранена",
