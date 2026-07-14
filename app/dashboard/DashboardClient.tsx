@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState, useTransition } from "react";
+import { useActionState, useState, useTransition, type FormEvent } from "react";
 import Link from "next/link";
 import {
   FileText,
@@ -12,7 +12,8 @@ import {
   Bell,
   Settings as SettingsIcon,
   LayoutGrid,
-  IdCard
+  IdCard,
+  FlaskConical
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 import { useToast } from "@/lib/toast-context";
@@ -34,23 +35,16 @@ type Tab = "overview" | "applications" | "saved" | "passport" | "alerts" | "sett
 export function DashboardClient({
   profile,
   data,
-  notConfigured
+  demo = false,
+  dataUnavailable = false
 }: {
   profile?: SessionProfile;
-  data?: CandidateDashboardData | null;
-  notConfigured?: boolean;
+  data: CandidateDashboardData;
+  demo?: boolean;
+  dataUnavailable?: boolean;
 }) {
   const { t } = useI18n();
   const [tab, setTab] = useState<Tab>("overview");
-
-  if (notConfigured || !data) {
-    return (
-      <div className="container-page flex min-h-[50vh] flex-col items-center justify-center gap-3 py-16 text-center">
-        <h1 className="font-heading text-xl font-bold text-ink">{t.dashboard.welcome}</h1>
-        <p className="max-w-sm text-sm text-muted">{t.auth.backendNotConfigured}</p>
-      </div>
-    );
-  }
 
   const tabs: { id: Tab; label: string; icon: typeof LayoutGrid }[] = [
     { id: "overview", label: t.dashboard.tabOverview, icon: LayoutGrid },
@@ -61,16 +55,29 @@ export function DashboardClient({
     { id: "settings", label: t.dashboard.tabSettings, icon: SettingsIcon }
   ];
 
-  const interviewsCount = data.applications.filter((a) =>
-    ["interview", "offer", "hired"].includes(a.status)
-  ).length;
+  const interviewsCount = data.applications.filter((a) => ["interview", "offer", "hired"].includes(a.status)).length;
+  const displayName = demo ? "Anna" : profile?.firstName;
 
   return (
     <div className="bg-surface">
       <div className="container-page py-10 sm:py-14">
-        <h1 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
-          {t.dashboard.welcome}{profile?.firstName ? `, ${profile.firstName}` : ""}
-        </h1>
+        <div className="flex flex-wrap items-center gap-3">
+          <h1 className="font-heading text-2xl font-extrabold text-ink sm:text-3xl">
+            {t.dashboard.welcome}
+            {displayName ? `, ${displayName}` : ""}
+          </h1>
+          {demo && !dataUnavailable && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-xs font-semibold text-muted">
+              <FlaskConical size={12} aria-hidden="true" />
+              {t.dashboard.demoView}
+            </span>
+          )}
+          {dataUnavailable && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">
+              {t.auth.genericError}
+            </span>
+          )}
+        </div>
 
         <div className="mt-6 flex gap-2 overflow-x-auto pb-1">
           {tabs.map((item) => (
@@ -92,14 +99,12 @@ export function DashboardClient({
         </div>
 
         <div className="mt-8">
-          {tab === "overview" && (
-            <Overview data={data} interviewsCount={interviewsCount} onGoTo={setTab} />
-          )}
-          {tab === "applications" && <ApplicationsTab data={data} />}
+          {tab === "overview" && <Overview data={data} interviewsCount={interviewsCount} onGoTo={setTab} demo={demo} />}
+          {tab === "applications" && <ApplicationsTab data={data} demo={demo} />}
           {tab === "saved" && <SavedTab data={data} />}
           {tab === "passport" && <PassportTab data={data} />}
           {tab === "alerts" && <AlertsTab />}
-          {tab === "settings" && profile && <SettingsTab profile={profile} />}
+          {tab === "settings" && <SettingsTab profile={profile} demo={demo} />}
         </div>
       </div>
     </div>
@@ -109,11 +114,13 @@ export function DashboardClient({
 function Overview({
   data,
   interviewsCount,
-  onGoTo
+  onGoTo,
+  demo
 }: {
   data: CandidateDashboardData;
   interviewsCount: number;
   onGoTo: (tab: Tab) => void;
+  demo: boolean;
 }) {
   const { t } = useI18n();
 
@@ -149,7 +156,7 @@ function Overview({
           <div className="mt-4 flex flex-col gap-3">
             {data.applications.length === 0 && <EmptyState text={t.dashboard.noApplications} />}
             {data.applications.slice(0, 4).map((application) => (
-              <ApplicationRow key={application.id} application={application} />
+              <ApplicationRow key={application.id} application={application} demo={demo} />
             ))}
           </div>
         </div>
@@ -168,35 +175,44 @@ function Overview({
   );
 }
 
-function ApplicationsTab({ data }: { data: CandidateDashboardData }) {
+function ApplicationsTab({ data, demo }: { data: CandidateDashboardData; demo: boolean }) {
   const { t } = useI18n();
   return (
     <div className="flex flex-col gap-3">
       {data.applications.length === 0 && <EmptyState text={t.dashboard.noApplications} />}
       {data.applications.map((application) => (
-        <ApplicationRow key={application.id} application={application} showWithdraw />
+        <ApplicationRow key={application.id} application={application} showWithdraw demo={demo} />
       ))}
     </div>
   );
 }
 
+/** Shows the application's real status plus a plain timeline of the five recruitment steps — no "simulate" control. */
 function ApplicationRow({
   application,
-  showWithdraw = false
+  showWithdraw = false,
+  demo
 }: {
   application: CandidateDashboardData["applications"][number];
   showWithdraw?: boolean;
+  demo: boolean;
 }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const { showToast } = useToast();
   const [pending, startTransition] = useTransition();
   const [withdrawn, setWithdrawn] = useState(application.status === "withdrawn");
+  const [expanded, setExpanded] = useState(false);
   const company = getCompanyBySlug(application.job.companySlug);
   const status = (withdrawn ? "withdrawn" : application.status) as ApplicationStatus;
   const label = getApplicationStatusLabel(status, t);
   const terminal = isApplicationTerminal(status);
 
   function handleWithdraw() {
+    if (demo) {
+      setWithdrawn(true);
+      showToast(t.dashboard.withdrawn);
+      return;
+    }
     startTransition(async () => {
       const result = await withdrawApplicationAction(application.id);
       if (result.ok) {
@@ -209,38 +225,65 @@ function ApplicationRow({
   if (!company) return null;
 
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-white p-5 shadow-soft sm:flex-row sm:items-center sm:justify-between">
-      <Link href={`/jobs/${application.job.slug}`} className="flex items-center gap-3">
-        <CompanyLogo initials={company.initials} color={company.color} size={40} />
-        <div>
-          <p className="text-sm font-bold text-ink hover:text-brand">{application.job.title}</p>
-          <p className="text-xs text-muted">
-            {company.name} · {formatDate(application.createdAt)}
-          </p>
-        </div>
-      </Link>
-      <div className="flex items-center gap-3">
-        <span
-          className={cn(
-            "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold",
-            terminal && status !== "hired" ? "bg-surface text-muted" : "bg-brand-light text-brand"
-          )}
-        >
-          {label}
-          {!terminal && <ChevronRight size={12} aria-hidden="true" />}
-        </span>
-        {showWithdraw && !terminal && (
+    <div className="rounded-2xl border border-border bg-white p-5 shadow-soft">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <Link href={`/jobs/${application.job.slug}`} className="flex items-center gap-3">
+          <CompanyLogo initials={company.initials} color={company.color} size={40} />
+          <div>
+            <p className="text-sm font-bold text-ink hover:text-brand">{application.job.title}</p>
+            <p className="text-xs text-muted">
+              {company.name} · {formatDate(application.createdAt, locale)}
+            </p>
+          </div>
+        </Link>
+        <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={handleWithdraw}
-            disabled={pending}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-border px-3 py-1.5 text-xs font-semibold text-ink transition-colors duration-150 hover:border-red-300 hover:text-red-600 disabled:opacity-60"
+            onClick={() => setExpanded((v) => !v)}
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-colors duration-150",
+              terminal && status !== "hired" ? "bg-surface text-muted" : "bg-brand-light text-brand"
+            )}
           >
-            <X size={12} aria-hidden="true" />
-            {t.dashboard.withdraw}
+            {label}
+            <ChevronRight size={12} className={cn("transition-transform duration-200", expanded && "rotate-90")} aria-hidden="true" />
           </button>
-        )}
+          {showWithdraw && !terminal && (
+            <button
+              type="button"
+              onClick={handleWithdraw}
+              disabled={pending}
+              className="inline-flex items-center gap-1.5 rounded-xl border border-border px-3 py-1.5 text-xs font-semibold text-ink transition-colors duration-150 hover:border-red-300 hover:text-red-600 disabled:opacity-60"
+            >
+              <X size={12} aria-hidden="true" />
+              {t.dashboard.withdraw}
+            </button>
+          )}
+        </div>
       </div>
+
+      {expanded && !terminal && (
+        <ol className="mt-5 flex flex-col gap-3 border-t border-border pt-4">
+          {t.applicationStatus.steps.map((step, index) => {
+            const stepStatuses: ApplicationStatus[] = ["submitted", "viewed", "shortlisted", "interview", "offer"];
+            const currentIndex = stepStatuses.indexOf(status);
+            const reached = index <= currentIndex;
+            return (
+              <li key={step} className="flex items-center gap-3 text-sm">
+                <span
+                  className={cn(
+                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold",
+                    reached ? "bg-success text-white" : "border border-border text-muted"
+                  )}
+                >
+                  {index + 1}
+                </span>
+                <span className={reached ? "font-semibold text-ink" : "text-muted"}>{step}</span>
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </div>
   );
 }
@@ -290,21 +333,30 @@ function AlertsTab() {
 
 const settingsInitialState: ActionState = {};
 
-function SettingsTab({ profile }: { profile: SessionProfile }) {
+function SettingsTab({ profile, demo }: { profile?: SessionProfile; demo: boolean }) {
   const { t } = useI18n();
   const { showToast } = useToast();
   const [state, formAction, pending] = useActionState(updateAccountSettingsAction, settingsInitialState);
 
-  if (state.success) showToast(t.dashboard.settingsSaved);
+  if (!demo && state.success) showToast(t.dashboard.settingsSaved);
+
+  function handleDemoSubmit(event: FormEvent) {
+    event.preventDefault();
+    showToast(t.dashboard.settingsSaved);
+  }
 
   return (
-    <form action={formAction} className="flex max-w-md flex-col gap-4 rounded-2xl border border-border bg-white p-6 shadow-soft">
+    <form
+      action={demo ? undefined : formAction}
+      onSubmit={demo ? handleDemoSubmit : undefined}
+      className="flex max-w-md flex-col gap-4 rounded-2xl border border-border bg-white p-6 shadow-soft"
+    >
       <h2 className="font-heading text-base font-bold text-ink">{t.dashboard.settingsTitle}</h2>
       <div className="grid grid-cols-2 gap-3">
-        <Field label={t.auth.firstName} name="firstName" defaultValue={profile.firstName ?? ""} />
-        <Field label={t.auth.lastName} name="lastName" defaultValue="" />
+        <Field label={t.auth.firstName} name="firstName" defaultValue={demo ? "Anna" : (profile?.firstName ?? "")} />
+        <Field label={t.auth.lastName} name="lastName" defaultValue={demo ? "Kowalska" : ""} />
       </div>
-      <Field label={t.auth.email} name="email" defaultValue={profile.email} disabled />
+      <Field label={t.auth.email} name="email" defaultValue={demo ? "anna.kowalska@example.com" : (profile?.email ?? "")} disabled />
       <button
         type="submit"
         disabled={pending}

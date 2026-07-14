@@ -22,7 +22,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Rabotaj.com — Pracuj bez granic",
   description:
-    "Znajdź sprawdzoną pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji."
+    "Znajdź pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji."
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

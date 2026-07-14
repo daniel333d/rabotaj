@@ -21,7 +21,7 @@ export function JobsPageClient({ jobs }: { jobs: Job[] }) {
   const [locationQuery, setLocationQuery] = useState(searchParams.get("loc") ?? "");
   const [filters, setFilters] = useState<FilterState>(() => ({
     ...defaultFilters,
-    remoteOnly: searchParams.get("remote") === "1",
+    workMode: searchParams.get("remote") === "1" ? "remote" : "",
     accommodationOnly: searchParams.get("accommodation") === "1",
     industry: searchParams.get("industry") ?? "",
     experience: searchParams.get("experience") ?? "",
@@ -116,7 +116,7 @@ export function JobsPageClient({ jobs }: { jobs: Job[] }) {
             {pageItems.length > 0 ? (
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {pageItems.map((job) => (
-                  <JobCard key={job.slug} job={job} scoreVariant="standard" />
+                  <JobCard key={job.slug} job={job} />
                 ))}
               </div>
             ) : (

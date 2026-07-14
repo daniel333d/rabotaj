@@ -26,7 +26,7 @@ export function JobCard({
   const company = getCompanyBySlug(job.companySlug);
   const { isSaved, toggleSaved } = useSavedJobs();
   const { showToast } = useToast();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const saved = isSaved(job.slug);
 
   if (!company) return null;
@@ -71,7 +71,7 @@ export function JobCard({
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Briefcase size={15} className="shrink-0" aria-hidden="true" />
-          {workModelLabel(job.workModel)}
+          {workModelLabel(job.workModel, t)}
         </span>
         <span className="inline-flex items-center gap-1.5 font-semibold text-ink">
           <Wallet size={15} className="shrink-0 text-success" aria-hidden="true" />
@@ -115,7 +115,7 @@ export function JobCard({
       </div>
 
       <div className="relative z-10 mt-auto flex items-center justify-between gap-3 border-t border-border pt-4">
-        <span className="text-xs text-muted">{formatDate(job.publishedAt)}</span>
+        <span className="text-xs text-muted">{formatDate(job.publishedAt, locale)}</span>
         <div className="flex items-center gap-2">
           <button
             type="button"

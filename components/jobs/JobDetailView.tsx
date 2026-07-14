@@ -9,7 +9,9 @@ import {
   ShieldCheck,
   Clock3,
   CalendarDays,
-  Building2
+  Building2,
+  Languages,
+  BarChart3
 } from "lucide-react";
 import type { Job } from "@/lib/data/jobs";
 import { getCompanyBySlug } from "@/lib/data/companies";
@@ -33,7 +35,7 @@ type JobDetailViewProps = {
 };
 
 export function JobDetailView({ job, similar: similarProp, jobId, isLoggedIn, alreadyApplied, initialSaved }: JobDetailViewProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const company = getCompanyBySlug(job.companySlug);
   const similar = similarProp ?? getSimilarJobs(job);
 
@@ -63,7 +65,7 @@ export function JobDetailView({ job, similar: similarProp, jobId, isLoggedIn, al
                     <MapPin size={15} aria-hidden="true" /> {job.city}, {job.country}
                   </span>
                   <span className="inline-flex items-center gap-1.5">
-                    <Briefcase size={15} aria-hidden="true" /> {workModelLabel(job.workModel)}
+                    <Briefcase size={15} aria-hidden="true" /> {workModelLabel(job.workModel, t)}
                   </span>
                   <span className="inline-flex items-center gap-1.5 font-bold text-ink">
                     <Wallet size={15} className="text-success" aria-hidden="true" /> {formatSalary(job)} {t.common.gross}
@@ -117,6 +119,16 @@ export function JobDetailView({ job, similar: similarProp, jobId, isLoggedIn, al
             </ul>
           </DetailSection>
 
+          {job.niceToHave.length > 0 && (
+            <DetailSection title={t.jobDetail.niceToHave}>
+              <ul className="flex flex-col gap-2.5">
+                {job.niceToHave.map((item) => (
+                  <ListItem key={item}>{item}</ListItem>
+                ))}
+              </ul>
+            </DetailSection>
+          )}
+
           <DetailSection title={t.jobDetail.benefits}>
             <ul className="grid gap-2.5 sm:grid-cols-2">
               {job.benefits.map((item) => (
@@ -156,10 +168,12 @@ export function JobDetailView({ job, similar: similarProp, jobId, isLoggedIn, al
             <h2 className="font-heading text-sm font-bold text-ink">Szczegóły oferty</h2>
             <dl className="mt-4 flex flex-col gap-3.5 text-sm">
               <InfoRow icon={FileText} label={t.jobDetail.contractType} value={job.contractType} />
-              <InfoRow icon={Briefcase} label={t.jobDetail.workModel} value={workModelLabel(job.workModel)} />
+              <InfoRow icon={Briefcase} label={t.jobDetail.workModel} value={workModelLabel(job.workModel, t)} />
               <InfoRow icon={MapPin} label={t.jobDetail.location} value={`${job.city}, ${job.country}`} />
+              {job.language && <InfoRow icon={Languages} label={t.jobDetail.workLanguage} value={job.language} />}
+              <InfoRow icon={BarChart3} label={t.jobDetail.experienceLevel} value={job.experience} />
               <InfoRow icon={Wallet} label={t.jobDetail.salaryLabel} value={`${formatSalary(job)} ${t.common.gross}`} />
-              <InfoRow icon={CalendarDays} label={t.jobDetail.published} value={formatDate(job.publishedAt)} />
+              <InfoRow icon={CalendarDays} label={t.jobDetail.published} value={formatDate(job.publishedAt, locale)} />
             </dl>
           </div>
 

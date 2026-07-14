@@ -21,7 +21,8 @@ const es: Dictionary = {
     showResults: "Mostrar resultados",
     sortBy: "Ordenar",
     perMonth: "/ mes",
-    gross: "bruto"
+    gross: "bruto",
+    all: "Todos"
   },
   nav: {
     jobs: "Empleos",
@@ -38,7 +39,7 @@ const es: Dictionary = {
   hero: {
     headline: "Trabaja sin fronteras.",
     subtitle:
-      "Encuentra un empleo verificado en Polonia y en toda Europa. Crea un único perfil profesional, aplica más rápido y sigue cada etapa del proceso de selección.",
+      "Encuentra empleo en Polonia y en toda Europa. Crea un único perfil profesional, aplica más rápido y sigue cada etapa del proceso de selección.",
     positionLabel: "Puesto, profesión o habilidad",
     positionPlaceholder: "p. ej. Frontend Developer, soldador, conductor",
     locationLabel: "Ciudad, país o remoto",
@@ -70,7 +71,7 @@ const es: Dictionary = {
   latestJobs: {
     kicker: "Últimas ofertas",
     title: "Ofertas recientes y destacadas",
-    intro: "Puestos publicados recientemente por empresas verificadas en Polonia y Europa.",
+    intro: "Puestos publicados recientemente por empresas que publican sus ofertas en Polonia y Europa.",
     cta: "Ver todas las ofertas"
   },
   careerPassport: {
@@ -107,8 +108,8 @@ const es: Dictionary = {
   },
   verifiedEmployers: {
     kicker: "Verified Employers",
-    title: "Verificamos a las empresas antes de que se unan a Rabotaj",
-    text: "Cada empresa con la insignia Verified Employer ha superado una verificación de sus datos de registro y sus prácticas de contratación, para que puedas aplicar con más confianza.",
+    title: "Las empresas con la insignia Verified Employer pasan una verificación de datos.",
+    text: "La verificación abarca los datos de registro de la empresa y la forma en que publica las condiciones de empleo. La insignia Verified Employer no es una calificación del empleador ni una garantía de empleo.",
     badge1: "Empresa verificada",
     badge2: "Salario transparente",
     badge3: "Respuesta rápida",
@@ -142,7 +143,7 @@ const es: Dictionary = {
     remoteTitle: "Trabajo remoto",
     remoteText: "Cientos de ofertas sin necesidad de mudarte — trabaja desde casa para empresas de Polonia y Europa.",
     abroadTitle: "Trabajo en el extranjero",
-    abroadText: "Ofertas legales en Alemania, los Países Bajos y otros países de la UE, muchas con alojamiento incluido.",
+    abroadText: "Ofertas de empresas que publican sus condiciones de empleo en Alemania, los Países Bajos y otros países de la UE, muchas con alojamiento incluido.",
     cta: "Explorar ofertas"
   },
   salary: {
@@ -195,8 +196,11 @@ const es: Dictionary = {
     sortMatch: "Mejor coincidencia",
     filterCountry: "País",
     filterCity: "Ciudad",
-    filterRemote: "Trabajo remoto",
+    filterWorkMode: "Modalidad de trabajo",
+    filterAccommodation: "Alojamiento",
     filterSalary: "Salario",
+    filterSalaryAny: "cualquiera",
+    filterSalaryFrom: "desde",
     filterContract: "Tipo de contrato",
     filterExperience: "Experiencia",
     filterLanguage: "Idioma de trabajo",
@@ -209,6 +213,7 @@ const es: Dictionary = {
     aboutRole: "Sobre el puesto",
     responsibilities: "Responsabilidades",
     requirements: "Requisitos",
+    niceToHave: "Se valorará",
     benefits: "Beneficios",
     process: "Proceso de selección",
     aboutCompany: "Sobre la empresa",
@@ -216,6 +221,8 @@ const es: Dictionary = {
     contractType: "Tipo de contrato",
     workModel: "Modalidad de trabajo",
     location: "Ubicación",
+    workLanguage: "Idioma de trabajo",
+    experienceLevel: "Experiencia",
     salaryLabel: "Salario",
     published: "Publicado",
     applyModalTitle: "Aplica a esta oferta",
@@ -250,7 +257,8 @@ const es: Dictionary = {
     settingsTitle: "Ajustes de la cuenta",
     settingsSaved: "Cambios guardados",
     withdraw: "Retirar postulación",
-    withdrawn: "Postulación retirada"
+    withdrawn: "Postulación retirada",
+    demoView: "Vista de demostración"
   },
   auth: {
     loginTitle: "Inicia sesión en Rabotaj",
@@ -285,6 +293,11 @@ const es: Dictionary = {
     emailAlreadyRegistered: "Este correo electrónico ya está registrado.",
     linkExpired: "Este enlace ha caducado o no es válido. Solicita uno nuevo.",
     accountBlocked: "Esta cuenta ha sido bloqueada. Contacta con soporte."
+  },
+  workModel: {
+    remote: "Trabajo remoto",
+    hybrid: "Trabajo híbrido",
+    onsite: "Trabajo presencial"
   },
   toast: {
     jobSaved: "Empleo guardado",
@@ -350,6 +363,26 @@ const es: Dictionary = {
       expectedResponseTime: "Especifica el tiempo de respuesta",
       startDate: "Indica la fecha de inicio"
     }
+  },
+  legalPages: {
+    aboutIntro: "Rabotaj.com es un prototipo de plataforma de empleo para Polonia, Ucrania y Europa Central y del Este.",
+    aboutBody:
+      "Estamos construyendo Rabotaj.com como un lugar donde los candidatos pueden encontrar ofertas de empleo transparentes en Polonia y toda Europa, y las empresas pueden llegar a candidatos dispuestos a trabajar o reubicarse. Esta versión del sitio es un prototipo de demostración: los datos de ofertas, empresas y cuentas son datos de ejemplo.",
+    contactIntro: "¿Tienes preguntas sobre este prototipo? Escríbenos.",
+    contactEmailLabel: "Correo electrónico",
+    contactNote: "Esta es una versión de demostración — los mensajes enviados desde este formulario no llegan a ningún equipo.",
+    termsIntro: "Un resumen breve de condiciones para la versión de demostración de Rabotaj.com.",
+    termsBody: [
+      "Rabotaj.com, en su forma actual, es un prototipo funcional presentado con fines demostrativos.",
+      "Las ofertas de empleo, los perfiles de empresas y las cuentas de usuario que se muestran en el sitio son datos de ejemplo y no representan ofertas de empleo reales.",
+      "El uso de los formularios (registro, postulación, publicación de una oferta) no genera ninguna obligación legal ni financiera."
+    ],
+    privacyIntro: "Un resumen breve de privacidad para la versión de demostración de Rabotaj.com.",
+    privacyBody: [
+      "En la versión de demostración, los datos introducidos en los formularios pueden almacenarse solo localmente en tu navegador (por ejemplo, ofertas guardadas) o, una vez configurado un backend, en una base de datos usada con fines de prueba.",
+      "No compartimos datos con terceros ni los usamos con fines de marketing.",
+      "La política de privacidad definitiva de producción se publicará junto con el lanzamiento completo del servicio."
+    ]
   }
 };
 

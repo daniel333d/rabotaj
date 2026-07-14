@@ -4,6 +4,10 @@ import { MapPin, Plane, Languages, Wrench, Wallet, CalendarDays } from "lucide-r
 import { getPublicCandidateProfile } from "@/lib/data/db-candidate";
 import { workModelLabel } from "@/lib/format";
 import type { WorkModel } from "@/lib/data/jobs";
+// Server component — outside the client-side I18nProvider, so this public
+// route falls back to the Polish master dictionary rather than the
+// visitor's chosen language (same fallback lib/rabotaj-score.ts uses).
+import pl from "@/lib/i18n/locales/pl";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -64,7 +68,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
               }
             />
             {profile.preferredWorkMode && (
-              <Field icon={CalendarDays} label="Model pracy" value={workModelLabel(profile.preferredWorkMode as WorkModel)} />
+              <Field icon={CalendarDays} label="Model pracy" value={workModelLabel(profile.preferredWorkMode as WorkModel, pl)} />
             )}
           </dl>
 

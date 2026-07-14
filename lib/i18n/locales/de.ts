@@ -21,7 +21,8 @@ const de: Dictionary = {
     showResults: "Ergebnisse anzeigen",
     sortBy: "Sortieren",
     perMonth: "/ Monat",
-    gross: "brutto"
+    gross: "brutto",
+    all: "Alle"
   },
   nav: {
     jobs: "Stellenangebote",
@@ -38,7 +39,7 @@ const de: Dictionary = {
   hero: {
     headline: "Arbeiten ohne Grenzen.",
     subtitle:
-      "Finde eine geprüfte Stelle in Polen und ganz Europa. Erstelle ein Karriereprofil, bewirb dich schneller und verfolge jeden Schritt der Bewerbung.",
+      "Finde eine Stelle in Polen und ganz Europa. Erstelle ein Karriereprofil, bewirb dich schneller und verfolge jeden Schritt der Bewerbung.",
     positionLabel: "Position, Beruf oder Fähigkeit",
     positionPlaceholder: "z. B. Frontend Developer, Schweißer, Fahrer",
     locationLabel: "Stadt, Land oder Remote",
@@ -70,7 +71,7 @@ const de: Dictionary = {
   latestJobs: {
     kicker: "Neueste Stellenangebote",
     title: "Neueste und empfohlene Stellenangebote",
-    intro: "Frisch veröffentlichte Stellen von geprüften Arbeitgebern in Polen und Europa.",
+    intro: "Frisch veröffentlichte Stellen von Unternehmen, die ihre Angebote in Polen und Europa veröffentlichen.",
     cta: "Alle Stellenangebote ansehen"
   },
   careerPassport: {
@@ -107,8 +108,8 @@ const de: Dictionary = {
   },
   verifiedEmployers: {
     kicker: "Verified Employers",
-    title: "Wir prüfen Arbeitgeber, bevor sie auf Rabotaj erscheinen",
-    text: "Jedes Unternehmen mit dem Verified-Employer-Abzeichen wurde hinsichtlich Registrierungsdaten und Einstellungspraxis geprüft, damit du mit mehr Vertrauen bewerben kannst.",
+    title: "Unternehmen mit dem Verified-Employer-Abzeichen durchlaufen eine Datenprüfung.",
+    text: "Die Prüfung umfasst die Registrierungsdaten des Unternehmens und die Art, wie es Beschäftigungsbedingungen veröffentlicht. Das Verified-Employer-Abzeichen ist keine Arbeitgeberbewertung und keine Beschäftigungsgarantie.",
     badge1: "Unternehmen verifiziert",
     badge2: "Gehalt transparent",
     badge3: "Schnelle Antwort",
@@ -142,7 +143,7 @@ const de: Dictionary = {
     remoteTitle: "Remote-Arbeit",
     remoteText: "Hunderte Stellen ohne Umzug — arbeite von zu Hause für Unternehmen in Polen und Europa.",
     abroadTitle: "Arbeiten im Ausland",
-    abroadText: "Legale Stellenangebote in Deutschland, den Niederlanden und anderen EU-Ländern, viele mit Unterkunft.",
+    abroadText: "Stellenangebote von Unternehmen, die ihre Beschäftigungsbedingungen veröffentlichen, in Deutschland, den Niederlanden und anderen EU-Ländern, viele mit Unterkunft.",
     cta: "Stellen durchsuchen"
   },
   salary: {
@@ -195,8 +196,11 @@ const de: Dictionary = {
     sortMatch: "Beste Übereinstimmung",
     filterCountry: "Land",
     filterCity: "Stadt",
-    filterRemote: "Remote-Arbeit",
+    filterWorkMode: "Arbeitsmodell",
+    filterAccommodation: "Unterkunft",
     filterSalary: "Gehalt",
+    filterSalaryAny: "beliebig",
+    filterSalaryFrom: "ab",
     filterContract: "Vertragsart",
     filterExperience: "Erfahrung",
     filterLanguage: "Arbeitssprache",
@@ -209,6 +213,7 @@ const de: Dictionary = {
     aboutRole: "Über die Stelle",
     responsibilities: "Aufgaben",
     requirements: "Anforderungen",
+    niceToHave: "Von Vorteil",
     benefits: "Benefits",
     process: "Bewerbungsprozess",
     aboutCompany: "Über das Unternehmen",
@@ -216,6 +221,8 @@ const de: Dictionary = {
     contractType: "Beschäftigungsart",
     workModel: "Arbeitsmodell",
     location: "Standort",
+    workLanguage: "Arbeitssprache",
+    experienceLevel: "Erfahrung",
     salaryLabel: "Gehalt",
     published: "Veröffentlicht",
     applyModalTitle: "Auf diese Stelle bewerben",
@@ -250,7 +257,8 @@ const de: Dictionary = {
     settingsTitle: "Kontoeinstellungen",
     settingsSaved: "Änderungen gespeichert",
     withdraw: "Bewerbung zurückziehen",
-    withdrawn: "Bewerbung zurückgezogen"
+    withdrawn: "Bewerbung zurückgezogen",
+    demoView: "Demoansicht"
   },
   auth: {
     loginTitle: "Bei Rabotaj anmelden",
@@ -285,6 +293,11 @@ const de: Dictionary = {
     emailAlreadyRegistered: "Diese E-Mail-Adresse ist bereits registriert.",
     linkExpired: "Dieser Link ist abgelaufen oder ungültig. Fordere einen neuen an.",
     accountBlocked: "Dieses Konto wurde gesperrt. Bitte wende dich an den Support."
+  },
+  workModel: {
+    remote: "Remote-Arbeit",
+    hybrid: "Hybride Arbeit",
+    onsite: "Arbeit vor Ort"
   },
   toast: {
     jobSaved: "Stelle gespeichert",
@@ -350,6 +363,26 @@ const de: Dictionary = {
       expectedResponseTime: "Antwortzeit festlegen",
       startDate: "Startdatum angeben"
     }
+  },
+  legalPages: {
+    aboutIntro: "Rabotaj.com ist ein Prototyp einer Jobplattform für Polen, die Ukraine und Mittel-/Osteuropa.",
+    aboutBody:
+      "Wir entwickeln Rabotaj.com als Ort, an dem Kandidaten transparente Stellenangebote in Polen und Europa finden können und Arbeitgeber Kandidaten erreichen, die bereit sind zu arbeiten oder umzuziehen. Diese Version der Seite ist ein Demo-Prototyp — Daten zu Stellen, Unternehmen und Konten sind Beispieldaten.",
+    contactIntro: "Fragen zu diesem Prototyp? Schreib uns.",
+    contactEmailLabel: "E-Mail",
+    contactNote: "Dies ist eine Demo-Version — über dieses Formular gesendete Nachrichten erreichen kein Team.",
+    termsIntro: "Kurze Nutzungsbedingungen für die Demo-Version von Rabotaj.com.",
+    termsBody: [
+      "Rabotaj.com ist in seiner aktuellen Form ein funktionsfähiger Prototyp zu Demonstrationszwecken.",
+      "Stellenangebote, Unternehmensprofile und Nutzerkonten auf der Seite sind Beispieldaten und stellen keine echten Stellenangebote dar.",
+      "Die Nutzung der Formulare (Registrierung, Bewerbung, Stelleninserat) begründet keine rechtlichen oder finanziellen Verpflichtungen."
+    ],
+    privacyIntro: "Kurzer Datenschutzhinweis für die Demo-Version von Rabotaj.com.",
+    privacyBody: [
+      "In der Demo-Version werden in Formularen eingegebene Daten nur lokal im Browser gespeichert (z. B. gespeicherte Stellen) oder, sobald ein Backend konfiguriert ist, in einer Datenbank für Testzwecke.",
+      "Wir geben keine Daten an Dritte weiter und nutzen sie nicht für Marketingzwecke.",
+      "Die endgültige Datenschutzerklärung für den Produktivbetrieb wird zusammen mit dem vollständigen Start des Dienstes veröffentlicht."
+    ]
   }
 };
 

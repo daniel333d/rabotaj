@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { logoutAction } from "@/lib/actions/auth";
 import { getPostAuthRedirect } from "@/lib/auth/redirect";
 import type { SessionProfile } from "@/lib/auth/session";
+import { Logo } from "@/components/layout/Logo";
 
 export function Navbar({ profile }: { profile: SessionProfile | null }) {
   const { t } = useI18n();
@@ -25,8 +26,8 @@ export function Navbar({ profile }: { profile: SessionProfile | null }) {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-white/90 backdrop-blur-sm">
       <div className="container-page flex h-16 items-center justify-between sm:h-20">
-        <Link href="/" className="font-heading text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
-          RABOTA<span className="text-brand">J</span>
+        <Link href="/" aria-label="Rabotaj.com">
+          <Logo className="text-xl sm:text-2xl" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Główna nawigacja">
@@ -77,9 +78,7 @@ export function Navbar({ profile }: { profile: SessionProfile | null }) {
           <div className="absolute inset-0 bg-navy/40" onClick={() => setMobileOpen(false)} aria-hidden="true" />
           <div className="animate-fade-in absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col gap-6 overflow-y-auto bg-white p-6 shadow-elevated">
             <div className="flex items-center justify-between">
-              <span className="font-heading text-lg font-extrabold text-ink">
-                RABOTA<span className="text-brand">J</span>
-              </span>
+              <Logo className="text-lg" />
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}

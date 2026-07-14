@@ -37,11 +37,14 @@ function CompactRabotajScore({ result, className }: { result: RabotajScoreResult
       <button
         type="button"
         aria-describedby={tooltipId}
-        className="inline-flex items-center gap-2 rounded-full border border-border bg-white py-1 pl-1 pr-2.5 transition-colors duration-150 hover:border-brand/40 focus-visible:outline-2 focus-visible:outline-brand"
+        className="inline-flex items-center gap-2 rounded-xl border border-border bg-white py-1.5 pl-1.5 pr-3 transition-colors duration-150 hover:border-brand/40 focus-visible:outline-2 focus-visible:outline-brand"
       >
-        <ScoreRing score={result.score} size={22} colorHex={theme.ring} />
-        <span className="text-[11px] font-bold text-ink">
-          {t.rabotajScore.title} {result.score}/100
+        <ScoreRing score={result.score} size={26} colorHex={theme.ring} />
+        <span className="flex flex-col items-start leading-tight">
+          <span className="text-[11px] font-bold text-ink">
+            {t.rabotajScore.title} {result.score}/100
+          </span>
+          <span className={cn("text-[10px] font-semibold", theme.text)}>{t.rabotajScore.levels[result.level]}</span>
         </span>
       </button>
 

@@ -1,10 +1,10 @@
-import type { Job } from "@/lib/data/jobs";
+import type { Job, WorkModel } from "@/lib/data/jobs";
 import { calculateRabotajScore } from "@/lib/rabotaj-score";
 
 export type FilterState = {
   country: string;
   city: string;
-  remoteOnly: boolean;
+  workMode: WorkModel | "";
   accommodationOnly: boolean;
   minSalary: number;
   contractType: string;
@@ -18,7 +18,7 @@ export type FilterState = {
 export const defaultFilters: FilterState = {
   country: "",
   city: "",
-  remoteOnly: false,
+  workMode: "",
   accommodationOnly: false,
   minSalary: 0,
   contractType: "",
@@ -28,6 +28,8 @@ export const defaultFilters: FilterState = {
   verifiedOnly: false,
   minScore: 0
 };
+
+export const workModeValues: WorkModel[] = ["remote", "hybrid", "onsite"];
 
 export const scoreFilterOptions = [50, 70, 85];
 
@@ -62,7 +64,7 @@ export function applyFilters(list: Job[], query: string, filters: FilterState, l
     }
     if (filters.country && job.country !== filters.country) return false;
     if (filters.city && job.city !== filters.city) return false;
-    if (filters.remoteOnly && !job.remote) return false;
+    if (filters.workMode && job.workModel !== filters.workMode) return false;
     if (filters.accommodationOnly && !job.accommodation) return false;
     if (filters.minSalary && job.salaryMax < filters.minSalary) return false;
     if (filters.contractType && job.contractType !== filters.contractType) return false;

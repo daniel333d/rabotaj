@@ -95,6 +95,7 @@ export function dbJobToUiJob(job: JobRow, company: CompanyRow, skills: string[] 
     description: job.description ?? "",
     responsibilities: job.responsibilities,
     requirements: job.requirements,
+    niceToHave: job.nice_to_have,
     benefits: job.benefits,
     process: job.recruitment_process,
     expectedResponseTime: job.response_time_days ? `Zwykle w ciągu ${job.response_time_days} dni roboczych` : undefined,

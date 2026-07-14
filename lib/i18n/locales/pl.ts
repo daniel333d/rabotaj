@@ -19,7 +19,8 @@ const pl = {
     showResults: "Pokaż wyniki",
     sortBy: "Sortuj",
     perMonth: "/ mies.",
-    gross: "brutto"
+    gross: "brutto",
+    all: "Wszystkie"
   },
   nav: {
     jobs: "Oferty pracy",
@@ -36,7 +37,7 @@ const pl = {
   hero: {
     headline: "Pracuj bez granic.",
     subtitle:
-      "Znajdź sprawdzoną pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji.",
+      "Znajdź pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji.",
     positionLabel: "Stanowisko, zawód lub umiejętność",
     positionPlaceholder: "np. Frontend Developer, spawacz, kierowca",
     locationLabel: "Miasto, kraj lub praca zdalna",
@@ -68,7 +69,7 @@ const pl = {
   latestJobs: {
     kicker: "Najnowsze oferty",
     title: "Najnowsze i polecane oferty",
-    intro: "Świeżo dodane stanowiska od sprawdzonych pracodawców w Polsce i Europie.",
+    intro: "Świeżo dodane stanowiska od firm publikujących oferty pracy w Polsce i Europie.",
     cta: "Zobacz wszystkie oferty"
   },
   careerPassport: {
@@ -105,8 +106,8 @@ const pl = {
   },
   verifiedEmployers: {
     kicker: "Verified Employers",
-    title: "Sprawdzamy pracodawców, zanim trafią na Rabotaj",
-    text: "Każda firma z odznaką Verified Employer przechodzi weryfikację danych rejestrowych i sposobu zatrudniania, dzięki czemu aplikujesz z większym zaufaniem.",
+    title: "Firmy z odznaką Verified Employer przechodzą weryfikację danych.",
+    text: "Weryfikacja obejmuje dane rejestrowe firmy i sposób publikowania warunków zatrudnienia. Odznaka Verified Employer nie jest oceną pracodawcy ani gwarancją zatrudnienia.",
     badge1: "Firma zweryfikowana",
     badge2: "Wynagrodzenie jawne",
     badge3: "Szybka odpowiedź",
@@ -140,7 +141,7 @@ const pl = {
     remoteTitle: "Praca zdalna",
     remoteText: "Setki ofert bez konieczności przeprowadzki — pracuj z domu dla firm w Polsce i Europie.",
     abroadTitle: "Praca za granicą",
-    abroadText: "Legalne oferty pracy w Niemczech, Holandii i innych krajach UE, wiele z zakwaterowaniem.",
+    abroadText: "Oferty pracy od firm publikujących warunki zatrudnienia w Niemczech, Holandii i innych krajach UE, wiele z zakwaterowaniem.",
     cta: "Przeglądaj oferty"
   },
   salary: {
@@ -193,8 +194,11 @@ const pl = {
     sortMatch: "Najlepsze dopasowanie",
     filterCountry: "Kraj",
     filterCity: "Miasto",
-    filterRemote: "Praca zdalna",
+    filterWorkMode: "Model pracy",
+    filterAccommodation: "Zakwaterowanie",
     filterSalary: "Wynagrodzenie",
+    filterSalaryAny: "dowolne",
+    filterSalaryFrom: "od",
     filterContract: "Rodzaj umowy",
     filterExperience: "Doświadczenie",
     filterLanguage: "Język pracy",
@@ -207,6 +211,7 @@ const pl = {
     aboutRole: "Opis stanowiska",
     responsibilities: "Obowiązki",
     requirements: "Wymagania",
+    niceToHave: "Mile widziane",
     benefits: "Benefity",
     process: "Proces rekrutacji",
     aboutCompany: "O firmie",
@@ -214,6 +219,8 @@ const pl = {
     contractType: "Forma zatrudnienia",
     workModel: "Model pracy",
     location: "Lokalizacja",
+    workLanguage: "Język pracy",
+    experienceLevel: "Doświadczenie",
     salaryLabel: "Wynagrodzenie",
     published: "Opublikowano",
     applyModalTitle: "Aplikuj na tę ofertę",
@@ -248,7 +255,8 @@ const pl = {
     settingsTitle: "Ustawienia konta",
     settingsSaved: "Zapisano zmiany",
     withdraw: "Wycofaj aplikację",
-    withdrawn: "Aplikacja wycofana"
+    withdrawn: "Aplikacja wycofana",
+    demoView: "Widok demonstracyjny"
   },
   auth: {
     loginTitle: "Zaloguj się do Rabotaj",
@@ -283,6 +291,11 @@ const pl = {
     emailAlreadyRegistered: "Ten adres e-mail jest już zarejestrowany.",
     linkExpired: "Ten link wygasł lub jest nieprawidłowy. Poproś o nowy.",
     accountBlocked: "To konto zostało zablokowane. Skontaktuj się z pomocą techniczną."
+  },
+  workModel: {
+    remote: "Praca zdalna",
+    hybrid: "Praca hybrydowa",
+    onsite: "Praca stacjonarna"
   },
   toast: {
     jobSaved: "Oferta zapisana",
@@ -348,6 +361,26 @@ const pl = {
       expectedResponseTime: "Określ czas odpowiedzi",
       startDate: "Podaj datę rozpoczęcia pracy"
     }
+  },
+  legalPages: {
+    aboutIntro: "Rabotaj.com to prototyp platformy pracy dla Polski, Ukrainy i Europy Środkowo-Wschodniej.",
+    aboutBody:
+      "Budujemy Rabotaj.com jako miejsce, w którym kandydaci mogą znaleźć przejrzyste oferty pracy w Polsce i całej Europie, a pracodawcy — dotrzeć do kandydatów gotowych do pracy lub relokacji. Ta wersja serwisu jest demonstracyjnym prototypem — dane ofert, firm i kont są przykładowe.",
+    contactIntro: "Masz pytania dotyczące tego prototypu? Napisz do nas.",
+    contactEmailLabel: "E-mail",
+    contactNote: "To jest wersja demonstracyjna — wiadomości wysłane z tego formularza nie trafiają do żadnego zespołu.",
+    termsIntro: "Skrócony regulamin wersji demonstracyjnej Rabotaj.com.",
+    termsBody: [
+      "Rabotaj.com w obecnej formie jest prototypem funkcjonalnym prezentowanym w celach demonstracyjnych.",
+      "Oferty pracy, profile firm i konta użytkowników widoczne w serwisie są danymi przykładowymi i nie stanowią rzeczywistych ofert zatrudnienia.",
+      "Korzystanie z formularzy (rejestracja, aplikowanie, dodawanie ogłoszeń) nie powoduje żadnych zobowiązań prawnych ani finansowych."
+    ],
+    privacyIntro: "Skrócona informacja o danych w wersji demonstracyjnej Rabotaj.com.",
+    privacyBody: [
+      "W wersji demonstracyjnej dane wpisywane w formularzach mogą być przechowywane wyłącznie lokalnie w przeglądarce (np. zapisane oferty) lub — po skonfigurowaniu backendu — w bazie danych używanej do celów testowych.",
+      "Nie udostępniamy danych osobom trzecim ani nie wykorzystujemy ich do celów marketingowych.",
+      "Docelowa, produkcyjna polityka prywatności zostanie opublikowana wraz z uruchomieniem pełnej wersji serwisu."
+    ]
   }
 };
 

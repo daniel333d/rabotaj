@@ -21,7 +21,8 @@ const en: Dictionary = {
     showResults: "Show results",
     sortBy: "Sort",
     perMonth: "/ month",
-    gross: "gross"
+    gross: "gross",
+    all: "All"
   },
   nav: {
     jobs: "Jobs",
@@ -38,7 +39,7 @@ const en: Dictionary = {
   hero: {
     headline: "Work without borders.",
     subtitle:
-      "Find a trusted job in Poland and across Europe. Create one career profile, apply faster and track every stage of recruitment.",
+      "Find a job in Poland and across Europe. Create one career profile, apply faster and track every stage of recruitment.",
     positionLabel: "Job title, profession or skill",
     positionPlaceholder: "e.g. Frontend Developer, welder, driver",
     locationLabel: "City, country or remote",
@@ -70,7 +71,7 @@ const en: Dictionary = {
   latestJobs: {
     kicker: "Latest jobs",
     title: "Latest and featured jobs",
-    intro: "Freshly posted roles from trusted employers across Poland and Europe.",
+    intro: "Freshly posted roles from companies publishing job listings across Poland and Europe.",
     cta: "See all jobs"
   },
   careerPassport: {
@@ -107,8 +108,8 @@ const en: Dictionary = {
   },
   verifiedEmployers: {
     kicker: "Verified Employers",
-    title: "We verify employers before they join Rabotaj",
-    text: "Every company with a Verified Employer badge has passed a check of its registration data and hiring practices, so you can apply with more confidence.",
+    title: "Companies with the Verified Employer badge go through a data check.",
+    text: "The check covers the company's registration data and how it publishes employment terms. The Verified Employer badge is not an employer rating or a guarantee of employment.",
     badge1: "Company verified",
     badge2: "Salary transparent",
     badge3: "Fast response",
@@ -142,7 +143,7 @@ const en: Dictionary = {
     remoteTitle: "Remote work",
     remoteText: "Hundreds of jobs with no relocation needed — work from home for companies across Poland and Europe.",
     abroadTitle: "Work abroad",
-    abroadText: "Legal job offers in Germany, the Netherlands and other EU countries, many with accommodation included.",
+    abroadText: "Job offers from companies that publish their employment terms in Germany, the Netherlands and other EU countries, many with accommodation included.",
     cta: "Browse jobs"
   },
   salary: {
@@ -195,8 +196,11 @@ const en: Dictionary = {
     sortMatch: "Best match",
     filterCountry: "Country",
     filterCity: "City",
-    filterRemote: "Remote work",
+    filterWorkMode: "Work model",
+    filterAccommodation: "Accommodation",
     filterSalary: "Salary",
+    filterSalaryAny: "any",
+    filterSalaryFrom: "from",
     filterContract: "Contract type",
     filterExperience: "Experience",
     filterLanguage: "Work language",
@@ -209,6 +213,7 @@ const en: Dictionary = {
     aboutRole: "About the role",
     responsibilities: "Responsibilities",
     requirements: "Requirements",
+    niceToHave: "Nice to have",
     benefits: "Benefits",
     process: "Recruitment process",
     aboutCompany: "About the company",
@@ -216,6 +221,8 @@ const en: Dictionary = {
     contractType: "Employment type",
     workModel: "Work model",
     location: "Location",
+    workLanguage: "Work language",
+    experienceLevel: "Experience",
     salaryLabel: "Salary",
     published: "Posted",
     applyModalTitle: "Apply for this job",
@@ -250,7 +257,8 @@ const en: Dictionary = {
     settingsTitle: "Account settings",
     settingsSaved: "Changes saved",
     withdraw: "Withdraw application",
-    withdrawn: "Application withdrawn"
+    withdrawn: "Application withdrawn",
+    demoView: "Demo view"
   },
   auth: {
     loginTitle: "Log in to Rabotaj",
@@ -285,6 +293,11 @@ const en: Dictionary = {
     emailAlreadyRegistered: "This email address is already registered.",
     linkExpired: "This link has expired or is invalid. Please request a new one.",
     accountBlocked: "This account has been blocked. Please contact support."
+  },
+  workModel: {
+    remote: "Remote work",
+    hybrid: "Hybrid work",
+    onsite: "On-site work"
   },
   toast: {
     jobSaved: "Job saved",
@@ -350,6 +363,26 @@ const en: Dictionary = {
       expectedResponseTime: "Specify the response time",
       startDate: "Provide the start date"
     }
+  },
+  legalPages: {
+    aboutIntro: "Rabotaj.com is a job platform prototype for Poland, Ukraine and Central/Eastern Europe.",
+    aboutBody:
+      "We're building Rabotaj.com as a place where candidates can find transparent job listings across Poland and Europe, and employers can reach candidates ready to work or relocate. This version of the site is a demo prototype — job, company and account data is sample data.",
+    contactIntro: "Questions about this prototype? Get in touch.",
+    contactEmailLabel: "Email",
+    contactNote: "This is a demo version — messages sent from this form don't reach any team.",
+    termsIntro: "A short terms summary for the demo version of Rabotaj.com.",
+    termsBody: [
+      "Rabotaj.com in its current form is a functional prototype presented for demonstration purposes.",
+      "Job listings, company profiles and user accounts shown in the site are sample data and do not represent real job offers.",
+      "Using the forms (registration, applying, posting a job) does not create any legal or financial obligation."
+    ],
+    privacyIntro: "A short privacy summary for the demo version of Rabotaj.com.",
+    privacyBody: [
+      "In the demo version, data entered in forms may be stored only locally in your browser (e.g. saved jobs) or, once a backend is configured, in a database used for testing purposes.",
+      "We don't share data with third parties or use it for marketing purposes.",
+      "The final, production privacy policy will be published alongside the full launch of the service."
+    ]
   }
 };
 

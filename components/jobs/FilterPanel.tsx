@@ -1,7 +1,8 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n/context";
-import { defaultFilters, scoreFilterOptions, type FilterOptions, type FilterState } from "@/lib/filters";
+import { defaultFilters, scoreFilterOptions, workModeValues, type FilterOptions, type FilterState } from "@/lib/filters";
+import { toIntlLocale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export function FilterPanel({
@@ -15,7 +16,7 @@ export function FilterPanel({
   options: FilterOptions;
   hideTitle?: boolean;
 }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   function update<K extends keyof FilterState>(key: K, value: FilterState[K]) {
     onChange({ ...filters, [key]: value });
@@ -39,23 +40,44 @@ export function FilterPanel({
         value={filters.country}
         onChange={(value) => update("country", value)}
         options={options.countries}
+        allLabel={t.common.all}
       />
       <Select
         label={t.jobsPage.filterCity}
         value={filters.city}
         onChange={(value) => update("city", value)}
         options={options.cities}
+        allLabel={t.common.all}
       />
 
+      <label className="flex flex-col gap-1.5">
+        <span className="text-xs font-semibold text-ink">{t.jobsPage.filterWorkMode}</span>
+        <select
+          value={filters.workMode}
+          onChange={(event) => update("workMode", event.target.value as FilterState["workMode"])}
+          className="rounded-xl border border-border bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand"
+        >
+          <option value="">{t.common.all}</option>
+          {workModeValues.map((mode) => (
+            <option key={mode} value={mode}>
+              {t.workModel[mode]}
+            </option>
+          ))}
+        </select>
+      </label>
+
       <Toggle
-        label={t.jobsPage.filterRemote}
-        checked={filters.remoteOnly}
-        onChange={(value) => update("remoteOnly", value)}
+        label={t.jobsPage.filterAccommodation}
+        checked={filters.accommodationOnly}
+        onChange={(value) => update("accommodationOnly", value)}
       />
 
       <div>
         <label htmlFor="filter-salary" className="text-xs font-semibold text-ink">
-          {t.jobsPage.filterSalary}: {filters.minSalary > 0 ? `od ${new Intl.NumberFormat("pl-PL").format(filters.minSalary)}` : "dowolne"}
+          {t.jobsPage.filterSalary}:{" "}
+          {filters.minSalary > 0
+            ? `${t.jobsPage.filterSalaryFrom} ${new Intl.NumberFormat(toIntlLocale(locale)).format(filters.minSalary)}`
+            : t.jobsPage.filterSalaryAny}
         </label>
         <input
           id="filter-salary"
@@ -74,24 +96,28 @@ export function FilterPanel({
         value={filters.contractType}
         onChange={(value) => update("contractType", value)}
         options={options.contractTypes}
+        allLabel={t.common.all}
       />
       <Select
         label={t.jobsPage.filterExperience}
         value={filters.experience}
         onChange={(value) => update("experience", value)}
         options={options.experiences}
+        allLabel={t.common.all}
       />
       <Select
         label={t.jobsPage.filterLanguage}
         value={filters.language}
         onChange={(value) => update("language", value)}
         options={options.languages}
+        allLabel={t.common.all}
       />
       <Select
         label={t.jobsPage.filterIndustry}
         value={filters.industry}
         onChange={(value) => update("industry", value)}
         options={options.industries}
+        allLabel={t.common.all}
       />
 
       <Toggle
@@ -132,12 +158,14 @@ function Select({
   label,
   value,
   onChange,
-  options
+  options,
+  allLabel
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   options: string[];
+  allLabel: string;
 }) {
   return (
     <div>
@@ -147,7 +175,7 @@ function Select({
         onChange={(event) => onChange(event.target.value)}
         className="mt-2 w-full rounded-xl border border-border bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus-visible:outline-2 focus-visible:outline-brand"
       >
-        <option value="">Wszystkie</option>
+        <option value="">{allLabel}</option>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}

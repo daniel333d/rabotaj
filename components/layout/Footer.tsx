@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n/context";
+import { Logo } from "@/components/layout/Logo";
 
 export function Footer() {
   const { t } = useI18n();
@@ -16,24 +17,22 @@ export function Footer() {
 
   const employerLinks = [
     { href: "/employers", label: t.nav.employers },
-    { href: "/employers", label: t.employersSection.postJob },
+    { href: "/employers#post-job", label: t.employersSection.postJob },
     { href: "/dashboard", label: "Panel kandydata" }
   ];
 
   const companyLinks = [
-    { href: "/", label: t.footer.about },
-    { href: "/", label: t.footer.contact },
-    { href: "/", label: t.footer.terms },
-    { href: "/", label: t.footer.privacy }
+    { href: "/about", label: t.footer.about },
+    { href: "/contact", label: t.footer.contact },
+    { href: "/terms", label: t.footer.terms },
+    { href: "/privacy", label: t.footer.privacy }
   ];
 
   return (
     <footer className="border-t border-border bg-white">
       <div className="container-page grid gap-10 py-14 sm:py-16 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <span className="font-heading text-xl font-extrabold text-ink">
-            RABOTA<span className="text-brand">J</span>
-          </span>
+          <Logo className="text-xl" />
           <p className="mt-3 max-w-xs text-sm text-muted">{t.footer.tagline}</p>
         </div>
 
