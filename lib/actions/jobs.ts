@@ -84,6 +84,7 @@ export async function createApplicationAction(
   // a race where two requests slip past the pre-check above at the same time.
   if (error) {
     if (error.code === "23505") return { error: "already-applied" };
+    console.error("createApplicationAction insert failed:", error.code, error.message);
     return { error: "generic-error" };
   }
 
