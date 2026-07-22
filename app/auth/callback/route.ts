@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { getPostAuthRedirect } from "@/lib/auth/redirect";
+import { getPostAuthRedirect, isSafeRedirectPath } from "@/lib/auth/redirect";
 import type { UserRole } from "@/lib/supabase/database.types";
 
 /** Handles Supabase email-confirmation and password-recovery redirects. */
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(`${origin}/login?error=link-expired`);
   }
 
-  if (next) {
+  if (isSafeRedirectPath(next)) {
     return NextResponse.redirect(`${origin}${next}`);
   }
 

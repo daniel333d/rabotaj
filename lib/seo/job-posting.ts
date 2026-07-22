@@ -65,3 +65,14 @@ export function buildJobPostingJsonLd(job: Job, company: Company, url: string) {
 
   return jsonLd;
 }
+
+/**
+ * Serializes JSON-LD for a `<script type="application/ld+json">` tag.
+ * `JSON.stringify` alone does not escape `<`, so employer-controlled text
+ * (e.g. `description`) could otherwise break out of the script tag and
+ * inject markup. Escaping `<`, `>` and `&` as unicode sequences keeps the
+ * JSON semantically identical while making that impossible.
+ */
+export function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026");
+}

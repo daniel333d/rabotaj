@@ -7,7 +7,7 @@ import { getPublishedJobBySlug, getPublishedJobIdBySlug, getSimilarPublishedJobs
 import { getSessionProfile } from "@/lib/auth/session";
 import { createClient } from "@/lib/supabase/server";
 import { JobDetailView } from "@/components/jobs/JobDetailView";
-import { buildJobPostingJsonLd } from "@/lib/seo/job-posting";
+import { buildJobPostingJsonLd, serializeJsonLd } from "@/lib/seo/job-posting";
 
 export function generateStaticParams() {
   return jobs.map((job) => ({ slug: job.slug }));
@@ -99,7 +99,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       <JobDetailView
         job={job}
         similar={similar}
