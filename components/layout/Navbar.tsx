@@ -24,10 +24,10 @@ export function Navbar({ profile }: { profile: SessionProfile | null }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-navy/90 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-border bg-white/90 backdrop-blur-sm">
       <div className="container-page flex h-16 items-center justify-between sm:h-20">
         <Link href="/" aria-label="Rabotaj.com">
-          <Logo variant="compact" priority className="h-8 sm:h-9" />
+          <Logo className="text-xl sm:text-2xl" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Główna nawigacja">
@@ -75,10 +75,10 @@ export function Navbar({ profile }: { profile: SessionProfile | null }) {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-navy/60" onClick={() => setMobileOpen(false)} aria-hidden="true" />
-          <div className="animate-fade-in absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col gap-6 overflow-y-auto bg-surface-raised p-6 shadow-elevated">
+          <div className="absolute inset-0 bg-navy/40" onClick={() => setMobileOpen(false)} aria-hidden="true" />
+          <div className="animate-fade-in absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col gap-6 overflow-y-auto bg-white p-6 shadow-elevated">
             <div className="flex items-center justify-between">
-              <Logo variant="mark" className="h-7" />
+              <Logo className="text-lg" />
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
@@ -178,7 +178,7 @@ function UserMenu({ profile }: { profile: SessionProfile }) {
       {open && (
         <div
           role="menu"
-          className="animate-fade-in absolute right-0 top-full z-30 mt-2 w-52 overflow-hidden rounded-xl border border-border bg-surface-raised py-1 shadow-elevated"
+          className="animate-fade-in absolute right-0 top-full z-30 mt-2 w-52 overflow-hidden rounded-xl border border-border bg-white py-1 shadow-elevated"
         >
           <Link
             href={getPostAuthRedirect(profile.role)}

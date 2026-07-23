@@ -33,7 +33,7 @@ export default async function EmployerLayout({ children }: { children: React.Rea
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-border bg-surface-raised px-4 py-2.5 text-sm font-semibold text-ink transition-colors duration-150 hover:border-brand hover:text-brand"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-border bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors duration-150 hover:border-brand hover:text-brand"
             >
               <link.icon size={15} aria-hidden="true" />
               {link.label}

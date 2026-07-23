@@ -5,18 +5,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#0B0F19",
-        brand: "#00E88A",
-        "brand-light": "rgba(0, 232, 138, 0.12)",
-        success: "#00E88A",
-        surface: "#0B0F19",
-        "surface-raised": "#172033",
-        ink: "#F8FAFC",
-        muted: "#A7B0C0",
-        border: "rgba(167, 176, 192, 0.18)",
-        cyan: "#00B4DB",
-        purple: "#7B2CFF",
-        "purple-deep": "#2A0D4F"
+        navy: "#0B1220",
+        brand: "#2563EB",
+        "brand-light": "#EAF2FF",
+        success: "#16A36A",
+        surface: "#F7F9FC",
+        ink: "#182033",
+        muted: "#667085",
+        border: "#E4E8F0"
       },
       fontFamily: {
         heading: ["var(--font-manrope)", "var(--font-inter)", "sans-serif"],
@@ -27,9 +23,9 @@ const config: Config = {
         "2xl": "20px"
       },
       boxShadow: {
-        soft: "0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.24)",
-        card: "0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.24)",
-        elevated: "0 12px 32px rgba(0, 0, 0, 0.45)"
+        soft: "0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06)",
+        card: "0 2px 8px rgba(16, 24, 40, 0.06), 0 1px 2px rgba(16, 24, 40, 0.04)",
+        elevated: "0 12px 32px rgba(16, 24, 40, 0.10)"
       },
       keyframes: {
         "fade-in": {
