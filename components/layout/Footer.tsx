@@ -29,10 +29,10 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border bg-white">
+    <footer className="border-t border-border bg-surface-raised">
       <div className="container-page grid gap-10 py-14 sm:py-16 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <Logo className="text-xl" />
+          <Logo variant="compact" className="h-8" />
           <p className="mt-3 max-w-xs text-sm text-muted">{t.footer.tagline}</p>
         </div>
 

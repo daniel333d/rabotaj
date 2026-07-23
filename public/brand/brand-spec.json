@@ -1,0 +1,25 @@
+{
+  "brand": "Rabotaj",
+  "tagline": "Twoja droga. Nieskończone możliwości.",
+  "source_reference": "/brand/reference/rabotaj-brand-board.png",
+  "colors_exact_from_board": {
+    "green": "#00E88A",
+    "cyan": "#00B4DB",
+    "purple": "#7B2CFF",
+    "deep_purple": "#2A0D4F",
+    "background": "#0B0F19"
+  },
+  "supporting_ui_colors": {
+    "surface": "#111827",
+    "surface_raised": "#172033",
+    "text": "#F8FAFC",
+    "muted_text": "#A7B0C0",
+    "border": "rgba(167, 176, 192, 0.18)"
+  },
+  "icon_style": {
+    "implementation": "Use existing Lucide icons; do not crop the tiny board icons into production UI.",
+    "stroke_width": 2,
+    "default_color": "#00E88A",
+    "shape": "minimal outline, rounded line endings, no filled tiles unless required"
+  }
+}

@@ -6,9 +6,9 @@ type Variant = "primary" | "secondary" | "ghost" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-brand text-white hover:bg-blue-700 shadow-soft",
-  secondary: "bg-navy text-white hover:bg-slate-800 shadow-soft",
-  outline: "border border-border bg-white text-ink hover:border-brand hover:text-brand",
+  primary: "bg-brand text-navy hover:bg-[#05cf7d] shadow-soft",
+  secondary: "bg-surface-raised text-ink border border-border hover:border-brand shadow-soft",
+  outline: "border border-border bg-surface-raised text-ink hover:border-brand hover:text-brand",
   ghost: "text-ink hover:bg-brand-light"
 };
 

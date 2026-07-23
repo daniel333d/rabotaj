@@ -1,0 +1,23 @@
+:root {
+  /* Exact palette from the accepted Rabotaj brand board */
+  --rabotaj-green: #00E88A;
+  --rabotaj-cyan: #00B4DB;
+  --rabotaj-purple: #7B2CFF;
+  --rabotaj-purple-deep: #2A0D4F;
+  --rabotaj-bg: #0B0F19;
+
+  /* Supporting UI tokens */
+  --rabotaj-surface: #111827;
+  --rabotaj-surface-raised: #172033;
+  --rabotaj-text: #F8FAFC;
+  --rabotaj-text-muted: #A7B0C0;
+  --rabotaj-border: rgba(167, 176, 192, 0.18);
+
+  --rabotaj-gradient: linear-gradient(
+    120deg,
+    #00E88A 0%,
+    #00B4DB 38%,
+    #7B2CFF 75%,
+    #2A0D4F 100%
+  );
+}

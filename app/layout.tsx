@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/context";
@@ -22,7 +22,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Rabotaj.com — Pracuj bez granic",
   description:
-    "Znajdź pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji."
+    "Znajdź pracę w Polsce i całej Europie. Utwórz jeden profil zawodowy, aplikuj szybciej i śledź każdy etap rekrutacji.",
+  icons: {
+    icon: [
+      { url: "/brand/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/brand/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icons/favicon.ico" }
+    ],
+    apple: [{ url: "/brand/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
+  }
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0F19"
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
